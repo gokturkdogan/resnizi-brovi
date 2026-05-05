@@ -2,547 +2,328 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-  />
-  <meta name="theme-color" content="#0d0c0b" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <title>Зорге 9 · Beauty Atelier · Карина Фельдбуш & Анастасия Лукашкина</title>
-  <meta
-    name="description"
-    content="Экспертное beauty-пространство. Ресницы & Брови — Карина Фельдбуш. Любить волосы — Анастасия Лукашкина. ЖК Зорге 9, Москва."
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1d1816" />
+  <meta name="description" content="Beauty Space — Ресницы & Брови (Карина) и Любить волосы (Анастасия). ЖК Зорге 9, Москва." />
+  <title>Beauty Space — Ресницы & Брови · Любить волосы</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
   />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- =================== SPLASH =================== -->
-  <div class="splash" id="splash" aria-hidden="false">
-    <div class="splash__inner">
-      <div class="splash__mono">
-        <svg viewBox="0 0 80 80" aria-hidden="true">
-          <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width=".75"/>
-          <path d="M22 52 V28 M22 40 L36 28 M22 40 L36 52" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M44 52 L52 28 L60 52 M47 44 H58" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="splash__title">ЗОРГЕ <span>·</span> 9</div>
-      <div class="splash__sub">Beauty Atelier · Москва</div>
-      <div class="splash__bar"><div class="splash__bar-fill"></div></div>
-    </div>
-  </div>
-
-  <!-- =================== APP SHELL =================== -->
-  <div class="phone" id="phone">
-
-    <!-- Story-style progress segments -->
-    <div class="story-progress" id="storyProgress" aria-hidden="true"></div>
-
-    <!-- Top brand row -->
+  <div class="page">
+    <!-- ============ TOP BAR ============ -->
     <header class="topbar">
-      <div class="topbar__brand">
-        <div class="topbar__avatar" aria-hidden="true">
-          <span>З9</span>
-        </div>
-        <div class="topbar__meta">
-          <span class="topbar__name">Зорге 9 · Beauty</span>
-          <span class="topbar__sub">Москва · ЖК Зорге 9</span>
-        </div>
-      </div>
-      <button class="icon-btn" id="shareBtn" aria-label="Поделиться">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+      <a href="#contact" class="topbar__brand">B&middot;Space</a>
+      <button class="topbar__menu" id="menuBtn" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span>
       </button>
     </header>
 
-    <!-- Scrollable content with snap sections -->
-    <main class="screen" id="screen">
+    <!-- ============ MOBILE NAV ============ -->
+    <nav class="drawer" id="drawer" aria-hidden="true">
+      <a href="#karina">Ресницы &amp; Брови</a>
+      <a href="#anastasia">Любить волосы</a>
+      <a href="#why">Почему мы</a>
+      <a href="#works">Работы</a>
+      <a href="#pricing">Прайс</a>
+      <a href="#contact">Контакты</a>
+    </nav>
 
-      <!-- ========== 1. HERO ========== -->
-      <section class="section section--hero" data-section="home" data-label="Главная">
-        <div class="hero__bg">
-          <div class="blob blob--1"></div>
-          <div class="blob blob--2"></div>
-          <div class="blob blob--3"></div>
-          <div class="grain" aria-hidden="true"></div>
-        </div>
+    <!-- ====================================================
+         0. MAIN HERO — Studio intro (new opening)
+         ==================================================== -->
+    <section class="intro" id="intro">
+      <div class="intro__bg" data-photo="intro" aria-hidden="true"></div>
+      <div class="intro__overlay" aria-hidden="true"></div>
 
-        <div class="hero__pill reveal" data-anim="fade-down">
-          <span class="pulse"></span> Запись на 2026 открыта
-        </div>
+      <div class="intro__inner">
+        <p class="intro__badge"><em>новое пространство</em></p>
 
-        <h1 class="hero__title">
-          <span class="reveal-line"><span data-anim="rise">Экспертное</span></span>
-          <span class="reveal-line"><span data-anim="rise" class="hero__title-accent" style="--d:.08s">beauty-</span></span>
-          <span class="reveal-line"><span data-anim="rise" style="--d:.16s">пространство</span></span>
+        <h1 class="intro__title">
+          Экспертное<br />
+          <em>beauty-пространство</em>
         </h1>
 
-        <p class="hero__lead reveal" data-anim="fade-up" style="--d:.28s">
-          Ресницы & Брови — <em>Карина Фельдбуш</em>.<br/>
-          Любить волосы — <em>Анастасия Лукашкина</em>.<br/>
-          Взгляд и волосы премиального уровня.
+        <div class="intro__divider" aria-hidden="true"></div>
+
+        <p class="intro__sub">
+          <strong>Ресницы &amp; Брови</strong>
+          <span>— Карина Фельдбуш</span>
+        </p>
+        <p class="intro__sub">
+          <strong>Любить волосы</strong>
+          <span>— Анастасия Лукашкина</span>
         </p>
 
-        <div class="hero__cta reveal" data-anim="fade-up" style="--d:.36s">
-          <a href="#contacts" class="btn btn--primary ripple" data-scroll>
-            Записаться · Ресницы & Брови
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#contacts" class="btn btn--secondary ripple" data-scroll>
-            Записаться · Любить волосы
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#contacts" class="btn btn--ghost" data-scroll>
-            Консультация
-          </a>
+        <p class="intro__tagline">
+          <em>Взгляд и волосы<br />премиального уровня</em>
+        </p>
+
+        <div class="intro__buttons">
+          <a href="#karina" class="btn btn--cream btn--block">Записаться — Ресницы &amp; Брови</a>
+          <a href="#anastasia" class="btn btn--cream btn--block">Записаться — Любить волосы</a>
+          <a href="#contact" class="btn btn--outline btn--block">Консультация</a>
         </div>
 
-        <div class="hero__stats reveal" data-anim="fade-up" style="--d:.48s">
-          <div class="stat">
-            <span class="stat__num" data-count="10" data-suffix="+">0</span>
-            <span class="stat__label">лет опыта</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">2</span>
-            <span class="stat__label">эксперта</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">1:1</span>
-            <span class="stat__label">приём</span>
-          </div>
-        </div>
-
-        <div class="scroll-hint" aria-hidden="true">
+        <a href="#karina" class="intro__scroll" aria-label="Прокрутить вниз">
           <span></span>
-          <small>пролистайте</small>
-        </div>
-      </section>
-
-      <!-- ========== 2. CONCEPT ========== -->
-      <section class="section section--concept" data-section="concept" data-label="Концепция">
-        <div class="kicker reveal" data-anim="fade-up">— Концепция</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">
-          Два независимых пространства. <em>Два эксперта.</em>
-        </h2>
-
-        <div class="concept-grid">
-          <div class="concept-card reveal" data-anim="fade-up" style="--d:.05s">
-            <span class="concept-card__num">01</span>
-            <p>Мы не потоковый салон.</p>
-          </div>
-          <div class="concept-card reveal" data-anim="fade-up" style="--d:.1s">
-            <span class="concept-card__num">02</span>
-            <p>Каждый эксперт работает в своей нише.</p>
-          </div>
-          <div class="concept-card reveal" data-anim="fade-up" style="--d:.15s">
-            <span class="concept-card__num">03</span>
-            <p>Мы работаем с внешностью как с системой.</p>
-          </div>
-          <div class="concept-card reveal" data-anim="fade-up" style="--d:.2s">
-            <span class="concept-card__num">04</span>
-            <p>Приватный приём, без потока клиентов.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== 3. LASHES & BROWS — KARINA ========== -->
-      <section class="section section--expert section--karina" data-section="lashes" data-label="Карина">
-        <div class="expert-photo reveal" data-anim="fade-up">
-          <div class="expert-photo__inner expert-photo--karina"></div>
-          <span class="expert-photo__badge">Эксперт · 10 лет</span>
-        </div>
-
-        <div class="kicker reveal" data-anim="fade-up" style="--d:.05s">— Пространство взгляда</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.1s">
-          Ресницы & Брови
-        </h2>
-        <p class="expert-name reveal" data-anim="fade-up" style="--d:.15s">
-          Карина Фельдбуш <span class="dot"></span> эксперт в эстетике лица
-        </p>
-
-        <ul class="service-list-fine">
-          <li class="reveal" data-anim="fade-up" style="--d:.05s">
-            <span>Наращивание ресниц</span>
-            <span class="dotline"></span>
-            <small>классика · 2D · 3D</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.1s">
-            <span>Перманентный макияж</span>
-            <span class="dotline"></span>
-            <small>брови · веки · губы</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.15s">
-            <span>Ламинирование</span>
-            <span class="dotline"></span>
-            <small>ресницы · брови</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.2s">
-            <span>Эстетическая косметология</span>
-            <span class="dotline"></span>
-            <small>уход · процедуры</small>
-          </li>
-        </ul>
-
-        <a href="#contacts" class="btn btn--primary ripple full reveal" data-anim="fade-up" style="--d:.3s" data-scroll>
-          Записаться к Карине
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-      </section>
+      </div>
+    </section>
 
-      <!-- ========== 4. HAIR — ANASTASIA ========== -->
-      <section class="section section--expert section--ana" data-section="hair" data-label="Анастасия">
-        <div class="expert-photo reveal" data-anim="fade-up">
-          <div class="expert-photo__inner expert-photo--ana"></div>
-          <span class="expert-photo__badge">Любить волосы</span>
-        </div>
+    <!-- ====================================================
+         1. HERO — KARINA (Ресницы & Брови)
+         ==================================================== -->
+    <section class="card hero" id="karina">
+      <p class="hero__tag"><em>бровист &middot; lash master</em></p>
+      <h1 class="hero__title">КАРИНА <em>Фельдбуш</em></h1>
+      <p class="hero__sub">
+        раскрою твою <em>природную красоту</em><br />
+        через искусство взгляда
+      </p>
 
-        <div class="kicker reveal" data-anim="fade-up" style="--d:.05s">— Пространство волос</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.1s">
-          Любить волосы
-        </h2>
-        <p class="expert-name reveal" data-anim="fade-up" style="--d:.15s">
-          Анастасия Лукашкина <span class="dot"></span> мастер по волосам
+      <div class="hero__photo" data-photo="karina"></div>
+
+      <a href="#contact" class="btn btn--brown btn--block">Записаться</a>
+
+      <div class="hero__bigword" aria-hidden="true">BROWS</div>
+
+      <div class="hero__about">
+        <div class="hero__mini" data-photo="karina-mini"></div>
+        <p class="hero__welcome">Добро пожаловать!</p>
+        <h2 class="hero__welcome-title">Я ВАШ МАСТЕР <em>БРОВИСТ</em></h2>
+        <p class="hero__text">
+          Моя задача — подчеркнуть вашу естественную красоту.
+          Каждая встреча начинается с индивидуальной консультации.
         </p>
+        <p class="hero__text hero__text--italic">
+          Использую только лучшие материалы и современные техники,
+          чтобы вы всегда выходили с улыбкой!
+        </p>
+      </div>
+    </section>
 
-        <ul class="service-list-fine">
-          <li class="reveal" data-anim="fade-up" style="--d:.05s">
-            <span>Наращивание волос</span>
-            <span class="dotline"></span>
-            <small>премиум технологии</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.1s">
-            <span>Подбор донорских волос</span>
-            <span class="dotline"></span>
-            <small>индивидуально</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.15s">
-            <span>Премиальные срезы</span>
-            <span class="dotline"></span>
-            <small>в продаже</small>
-          </li>
-          <li class="reveal" data-anim="fade-up" style="--d:.2s">
-            <span>Коррекция и уход</span>
-            <span class="dotline"></span>
-            <small>сопровождение</small>
-          </li>
+    <!-- ============ SERVICES — KARINA ============ -->
+    <section class="card services">
+      <h2 class="services__title">МОИ УСЛУГИ</h2>
+
+      <ul class="services__list">
+        <li><a href="#contact"><span>НАРАЩИВАНИЕ РЕСНИЦ</span><i>›</i></a></li>
+        <li><a href="#contact"><span>ПЕРМАНЕНТНЫЙ МАКИЯЖ</span><i>›</i></a></li>
+        <li><a href="#contact"><span>ЛАМИНИРОВАНИЕ</span><i>›</i></a></li>
+        <li><a href="#contact"><span>ЭСТЕТИЧЕСКАЯ КОСМЕТОЛОГИЯ</span><i>›</i></a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn--cream btn--block">Хочу идеальные брови</a>
+    </section>
+
+    <!-- ============ WHY US ============ -->
+    <section class="card-block" id="why">
+      <h2 class="block__title">ПОЧЕМУ ВЫБИРАЮТ <em>меня</em></h2>
+
+      <div class="why-grid">
+        <article class="why-tile why-tile--cream">
+          <span class="why-tile__num">1/</span>
+          <h3>Современные техники</h3>
+          <p>От классики до самых модных трендов — я владею всеми техниками, чтобы подобрать то, что подходит вам.</p>
+        </article>
+        <article class="why-tile why-tile--cream">
+          <span class="why-tile__num">2/</span>
+          <h3>Безопасность</h3>
+          <p>Только премиальные материалы и стерильный инструмент — забота о здоровье на первом месте.</p>
+        </article>
+        <article class="why-tile why-tile--dark" data-photo="dark-tile">
+          <span class="why-tile__num">3/</span>
+          <h3>Премиальный сервис</h3>
+          <p>Приватное пространство без потока. Только вы и ваш мастер.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RECENT WORKS ============ -->
+    <section class="card-block" id="works">
+      <h2 class="block__title">МОИ <em>НЕДАВНИЕ</em> РАБОТЫ</h2>
+
+      <div class="works-grid">
+        <div class="works-grid__cell works-grid__cell--a" data-photo="work-1">
+          <span class="works-grid__label">твои брови<br />— моя страсть!</span>
+        </div>
+        <div class="works-grid__cell works-grid__cell--b" data-photo="work-2"></div>
+        <div class="works-grid__cell works-grid__cell--c" data-photo="work-3">
+          <span class="works-grid__label works-grid__label--bottom">только<br />натуральность!</span>
+        </div>
+        <div class="works-grid__cell works-grid__cell--d" data-photo="work-4"></div>
+      </div>
+    </section>
+
+    <!-- ============ BONUS ============ -->
+    <section class="card-block bonus">
+      <div class="bonus__inner">
+        <p class="bonus__word"><em>бонус!</em></p>
+        <div class="bonus__card">
+          <p class="bonus__big">СКИДКА 15%</p>
+          <p class="bonus__small">НА ПЕРВОЕ ПОСЕЩЕНИЕ</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         2. HERO — ANASTASIA (Любить волосы)
+         ==================================================== -->
+    <section class="card hero hero--alt" id="anastasia">
+      <p class="hero__tag"><em>hair master</em></p>
+      <h1 class="hero__title">АНАСТАСИЯ <em>Лукашкина</em></h1>
+      <p class="hero__sub">
+        длина и плотность,<br />
+        что выглядят <em>как свои</em>
+      </p>
+
+      <div class="hero__photo" data-photo="anastasia"></div>
+
+      <a href="#contact" class="btn btn--brown btn--block">Записаться</a>
+
+      <div class="hero__bigword" aria-hidden="true">HAIR</div>
+
+      <div class="hero__about">
+        <div class="hero__mini" data-photo="anastasia-mini"></div>
+        <p class="hero__welcome">Добро пожаловать!</p>
+        <h2 class="hero__welcome-title">Я ВАШ МАСТЕР <em>ПО&nbsp;ВОЛОСАМ</em></h2>
+        <p class="hero__text">
+          Работаю только с натуральными премиальными срезами.
+          Подбираю волосы индивидуально — под структуру и оттенок ваших.
+        </p>
+        <p class="hero__text hero__text--italic">
+          Чтобы каждый раз вы видели в зеркале —
+          лучшую версию себя.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES — ANASTASIA ============ -->
+    <section class="card services">
+      <h2 class="services__title">МОИ УСЛУГИ</h2>
+
+      <ul class="services__list">
+        <li><a href="#contact"><span>НАРАЩИВАНИЕ ВОЛОС</span><i>›</i></a></li>
+        <li><a href="#contact"><span>ПОДБОР ДОНОРСКИХ ВОЛОС</span><i>›</i></a></li>
+        <li><a href="#contact"><span>ПРЕМИАЛЬНЫЕ СРЕЗЫ</span><i>›</i></a></li>
+        <li><a href="#contact"><span>КОРРЕКЦИЯ</span><i>›</i></a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn--cream btn--block">Хочу идеальные волосы</a>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="card-block" id="pricing">
+      <h2 class="block__title">ПРАЙС <em>лист</em></h2>
+
+      <article class="price">
+        <header class="price__head">
+          <p class="price__eyebrow">Карина · Ресницы &amp; Брови</p>
+        </header>
+        <ul class="price__list">
+          <li><span>Наращивание ресниц</span><em>от ₽</em></li>
+          <li><span>Ламинирование</span><em>от ₽</em></li>
+          <li><span>Перманентный макияж</span><em>от ₽</em></li>
+          <li><span>Косметология</span><em>от ₽</em></li>
         </ul>
+      </article>
 
-        <a href="#contacts" class="btn btn--primary ripple full reveal" data-anim="fade-up" style="--d:.3s" data-scroll>
-          Записаться к Анастасии
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </section>
+      <article class="price">
+        <header class="price__head">
+          <p class="price__eyebrow">Анастасия · Любить волосы</p>
+        </header>
+        <ul class="price__list">
+          <li><span>Наращивание волос</span><em>от ₽</em></li>
+          <li><span>Коррекция</span><em>от ₽</em></li>
+          <li><span>Подбор волос</span><em>бесплатно</em></li>
+          <li><span>Премиальные срезы</span><em>от ₽</em></li>
+        </ul>
+      </article>
 
-      <!-- ========== 5. WHY US ========== -->
-      <section class="section section--why" data-section="why" data-label="Почему мы">
-        <div class="kicker reveal" data-anim="fade-up">— Почему именно мы</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">
-          Подход <em>премиум-уровня</em>
-        </h2>
+      <p class="price__note">
+        <em>Финальная стоимость зависит от объёма<br />и индивидуальных особенностей.</em>
+      </p>
+    </section>
 
-        <div class="features">
-          <div class="feature reveal tilt" data-anim="fade-up" style="--d:.05s">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4zM9 12l2 2 4-4"/></svg>
-            </div>
-            <h3>Узкая специализация</h3>
-            <p>Каждый эксперт — мастер в своём направлении.</p>
-          </div>
-          <div class="feature reveal tilt" data-anim="fade-up" style="--d:.1s">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18l-5.5 4L8 14.5 3 10l6.5-1.5L12 2z"/></svg>
-            </div>
-            <h3>Премиальные материалы</h3>
-            <p>Сертифицированные материалы и волосы.</p>
-          </div>
-          <div class="feature reveal tilt" data-anim="fade-up" style="--d:.15s">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"/></svg>
-            </div>
-            <h3>Экспертность</h3>
-            <p>Образование, обучение и опыт более 10 лет.</p>
-          </div>
-          <div class="feature reveal tilt" data-anim="fade-up" style="--d:.2s">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
-            </div>
-            <h3>Индивидуальный подход</h3>
-            <p>Анализ внешности и решение под вас.</p>
-          </div>
-        </div>
-      </section>
+    <!-- ============ ATMOSPHERE ============ -->
+    <section class="card-block atmosphere">
+      <h2 class="block__title">АТМОСФЕРА <em>студии</em></h2>
+      <p class="atmosphere__lead">
+        Приватное пространство <em>без потока клиентов.</em>
+      </p>
 
-      <!-- ========== 6. RESULTS / GALLERY ========== -->
-      <section class="section section--gallery" data-section="gallery" data-label="Галерея">
-        <div class="kicker reveal" data-anim="fade-up">— Результаты</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">Работы экспертов</h2>
+      <ul class="atmosphere__list">
+        <li><span>·</span>Напитки</li>
+        <li><span>·</span>Wi-Fi</li>
+        <li><span>·</span>Зарядка</li>
+        <li><span>·</span>Парковка</li>
+      </ul>
+    </section>
 
-        <div class="g-tabs reveal" data-anim="fade-up" style="--d:.1s">
-          <button class="g-tab is-active" data-gtab="lashes">Ресницы & Брови</button>
-          <button class="g-tab" data-gtab="hair">Волосы</button>
-        </div>
+    <!-- ============ REVIEWS ============ -->
+    <section class="card-block reviews">
+      <h2 class="block__title">ОТЗЫВЫ <em>клиентов</em></h2>
 
-        <div class="gallery" data-gpane="lashes">
-          <div class="g-item g-lashes-1 reveal" data-anim="zoom"></div>
-          <div class="g-item g-lashes-2 reveal" data-anim="zoom" style="--d:.05s"></div>
-          <div class="g-item g-lashes-3 reveal" data-anim="zoom" style="--d:.1s"></div>
-          <div class="g-item g-lashes-4 reveal" data-anim="zoom" style="--d:.15s"></div>
-          <div class="g-item g-lashes-5 reveal" data-anim="zoom" style="--d:.2s"></div>
-          <div class="g-item g-lashes-6 reveal" data-anim="zoom" style="--d:.25s"></div>
-        </div>
+      <article class="review">
+        <p>«Очень аккуратно и натурально. Получила именно то, что хотела — мягкий взгляд и идеальные брови.»</p>
+        <footer>— Анна · <em>Ресницы &amp; Брови</em></footer>
+      </article>
+      <article class="review">
+        <p>«Волосы выглядят как свои. Анастасия подобрала идеальный срез — не отличить.»</p>
+        <footer>— Мария · <em>Любить волосы</em></footer>
+      </article>
+      <article class="review">
+        <p>«Премиальный сервис, приватная атмосфера. Ушла как из дорогого отеля, а не из салона.»</p>
+        <footer>— Екатерина · <em>Beauty Space</em></footer>
+      </article>
+    </section>
 
-        <div class="gallery is-hidden" data-gpane="hair">
-          <div class="g-item g-hair-1"></div>
-          <div class="g-item g-hair-2"></div>
-          <div class="g-item g-hair-3"></div>
-          <div class="g-item g-hair-4"></div>
-          <div class="g-item g-hair-5"></div>
-          <div class="g-item g-hair-6"></div>
-        </div>
+    <!-- ============ CONTACT ============ -->
+    <section class="card-block contact" id="contact">
+      <h2 class="block__title">СВЯЖИСЬ <em>со мной</em><br />для записи</h2>
 
-        <div class="ig-cta reveal" data-anim="fade-up">
-          <div class="ig-cta__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-          </div>
-          <div>
-            <strong>@zorge9.beauty</strong>
-            <span>Больше работ — в Instagram</span>
-          </div>
-          <a href="#" class="ig-cta__btn">Открыть</a>
-        </div>
-      </section>
+      <div class="contact__address">
+        <p class="contact__city">Москва</p>
+        <p class="contact__street">ЖК Зорге 9</p>
+      </div>
 
-      <!-- ========== 7. PRICING ========== -->
-      <section class="section section--pricing" data-section="pricing" data-label="Прайс">
-        <div class="kicker reveal" data-anim="fade-up">— Стоимость услуг</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">Прайс</h2>
+      <div class="contact__buttons">
+        <a class="btn btn--white btn--block" href="https://instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a class="btn btn--white btn--block" href="https://wa.me/70000000000" target="_blank" rel="noopener">WHATSAPP</a>
+        <a class="btn btn--white btn--block" href="https://t.me/" target="_blank" rel="noopener">TELEGRAM</a>
+        <a class="btn btn--white btn--block" href="tel:+70000000000">ПОЗВОНИТЬ</a>
+      </div>
 
-        <div class="price-card reveal" data-anim="fade-up" style="--d:.1s">
-          <h3 class="price-card__title">Ресницы & Брови</h3>
-          <ul class="price-list">
-            <li><span>Наращивание ресниц</span><span class="dotline"></span><strong>от ₽</strong></li>
-            <li><span>Ламинирование</span><span class="dotline"></span><strong>от ₽</strong></li>
-            <li><span>Перманентный макияж</span><span class="dotline"></span><strong>от ₽</strong></li>
-            <li><span>Эстетическая косметология</span><span class="dotline"></span><strong>от ₽</strong></li>
-          </ul>
-        </div>
+      <a
+        class="btn btn--cream btn--block contact__route"
+        href="https://yandex.ru/maps/?text=ЖК Зорге 9, Москва"
+        target="_blank"
+        rel="noopener"
+      >Построить маршрут</a>
+    </section>
 
-        <div class="price-card reveal" data-anim="fade-up" style="--d:.15s">
-          <h3 class="price-card__title">Любить волосы</h3>
-          <ul class="price-list">
-            <li><span>Наращивание волос</span><span class="dotline"></span><strong>от ₽</strong></li>
-            <li><span>Коррекция</span><span class="dotline"></span><strong>от ₽</strong></li>
-            <li><span>Подбор волос</span><span class="dotline"></span><strong>бесплатно</strong></li>
-            <li><span>Премиальные срезы</span><span class="dotline"></span><strong>от ₽</strong></li>
-          </ul>
-        </div>
+    <!-- ============ FINAL CTA ============ -->
+    <section class="card-block final">
+      <p class="final__quote">
+        <em>«Красота — это не услуга.<br />Это работа эксперта.»</em>
+      </p>
+    </section>
 
-        <p class="price-note reveal" data-anim="fade-up" style="--d:.2s">
-          Финальная стоимость зависит от объёма и индивидуальных особенностей.
-        </p>
-
-        <div class="hero__cta reveal" data-anim="fade-up" style="--d:.25s">
-          <a href="#contacts" class="btn btn--primary ripple" data-scroll>Запросить точную стоимость</a>
-          <a href="#contacts" class="btn btn--ghost ripple" data-scroll>Записаться</a>
-        </div>
-      </section>
-
-      <!-- ========== 8. ATMOSPHERE ========== -->
-      <section class="section section--atmo" data-section="atmosphere" data-label="Атмосфера">
-        <div class="kicker reveal" data-anim="fade-up">— Атмосфера</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">
-          Приватное пространство <em>без потока клиентов.</em>
-        </h2>
-
-        <div class="atmo-grid">
-          <div class="atmo reveal" data-anim="fade-up" style="--d:.05s">
-            <div class="atmo__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M6 4h9l1 4h2a2 2 0 0 1 2 2v3a3 3 0 0 1-3 3h-1l-1 4H7l-2-16zM7 4h.01"/></svg>
-            </div>
-            <span>Напитки</span>
-          </div>
-          <div class="atmo reveal" data-anim="fade-up" style="--d:.1s">
-            <div class="atmo__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5a10 10 0 0 1 14 0M8 16a6 6 0 0 1 8 0M11 19h2"/></svg>
-            </div>
-            <span>Wi-Fi</span>
-          </div>
-          <div class="atmo reveal" data-anim="fade-up" style="--d:.15s">
-            <div class="atmo__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg>
-            </div>
-            <span>Зарядка</span>
-          </div>
-          <div class="atmo reveal" data-anim="fade-up" style="--d:.2s">
-            <div class="atmo__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 17h2l1-3h8l1 3h2M6 17l1-9h10l1 9M8 17v3M16 17v3"/></svg>
-            </div>
-            <span>Парковка</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== 9. REVIEWS ========== -->
-      <section class="section section--reviews" data-section="reviews" data-label="Отзывы">
-        <div class="kicker reveal" data-anim="fade-up">— Отзывы</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">
-          Слова <em>наших клиентов</em>
-        </h2>
-
-        <div class="reviews">
-          <article class="review reveal" data-anim="fade-up" style="--d:.05s">
-            <div class="review__stars">★★★★★</div>
-            <p>«Очень аккуратно и натурально. Карина — настоящий эксперт лица.»</p>
-            <span class="review__meta">— Алина, 2 нед. назад</span>
-          </article>
-          <article class="review reveal" data-anim="fade-up" style="--d:.1s">
-            <div class="review__stars">★★★★★</div>
-            <p>«Волосы выглядят как свои. Анастасия подобрала идеальный срез.»</p>
-            <span class="review__meta">— Виктория, 1 мес. назад</span>
-          </article>
-          <article class="review reveal" data-anim="fade-up" style="--d:.15s">
-            <div class="review__stars">★★★★★</div>
-            <p>«Атмосфера спокойная, без суеты. Чувствуется внимание к деталям.»</p>
-            <span class="review__meta">— Мария, 3 нед. назад</span>
-          </article>
-        </div>
-      </section>
-
-      <!-- ========== 10. CONTACTS + LOCATION ========== -->
-      <section class="section section--contacts" data-section="contacts" data-label="Контакты">
-        <div class="kicker reveal" data-anim="fade-up">— Связаться</div>
-        <h2 class="title reveal" data-anim="fade-up" style="--d:.05s">Контакты</h2>
-
-        <div class="contact-list">
-          <a href="https://wa.me/79999999999" class="contact reveal ripple" data-anim="fade-up" style="--d:.05s">
-            <span class="contact__icon contact__icon--wa">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.4 17.7L2 22l4.4-1.3A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.6.8.8-2.5-.2-.3A8 8 0 1 1 12 20zm4.5-5.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.7.8-.8 1-.3.1-.5 0a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.5 2.5 0 0 0-.8 1.9c0 1.1.8 2.1 1 2.3a8.4 8.4 0 0 0 3.6 3.1c.5.2 1 .3 1.4.4a2 2 0 0 0 1.4-.5 1.7 1.7 0 0 0 .5-1.2c0-.2-.1-.4-.3-.5z"/></svg>
-            </span>
-            <div class="contact__body">
-              <strong>WhatsApp</strong>
-              <span>+7 (999) 999-99-99</span>
-            </div>
-            <span class="contact__chev">›</span>
-          </a>
-
-          <a href="tel:+79999999999" class="contact reveal ripple" data-anim="fade-up" style="--d:.1s">
-            <span class="contact__icon contact__icon--call">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.8 12.8 0 0 0 .7 2.8 2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5 12.8 12.8 0 0 0 2.8.7 2 2 0 0 1 1.7 2z"/></svg>
-            </span>
-            <div class="contact__body">
-              <strong>Телефон</strong>
-              <span>+7 (999) 999-99-99</span>
-            </div>
-            <span class="contact__chev">›</span>
-          </a>
-
-          <a href="https://t.me/zorge9beauty" class="contact reveal ripple" data-anim="fade-up" style="--d:.15s">
-            <span class="contact__icon contact__icon--tg">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 4.2 2.9 11.4c-1.1.5-1.1 1.1-.2 1.4l4.8 1.5 11.1-7c.5-.3 1-.1.6.2l-9 8.1-.3 4.4c.4 0 .6-.2.9-.5l2.1-2 4.4 3.2c.8.4 1.4.2 1.6-.7l3-13.7c.3-1.2-.5-1.7-1.3-1.4z"/></svg>
-            </span>
-            <div class="contact__body">
-              <strong>Telegram</strong>
-              <span>@zorge9beauty</span>
-            </div>
-            <span class="contact__chev">›</span>
-          </a>
-
-          <a href="https://instagram.com/zorge9.beauty" class="contact reveal ripple" data-anim="fade-up" style="--d:.2s">
-            <span class="contact__icon contact__icon--ig">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-            </span>
-            <div class="contact__body">
-              <strong>Instagram</strong>
-              <span>@zorge9.beauty</span>
-            </div>
-            <span class="contact__chev">›</span>
-          </a>
-        </div>
-
-        <!-- LOCATION -->
-        <div class="location reveal" data-anim="fade-up" style="--d:.25s">
-          <div class="location__head">
-            <span class="kicker">— Локация</span>
-            <strong>ЖК Зорге 9, Москва</strong>
-          </div>
-          <div class="location__map">
-            <iframe
-              title="Карта · ЖК Зорге 9"
-              src="https://maps.google.com/maps?q=%D0%96%D0%9A+%D0%97%D0%BE%D1%80%D0%B3%D0%B5+9%2C+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&z=16&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="location__cta">
-            <a class="btn btn--primary ripple" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=%D0%96%D0%9A+%D0%97%D0%BE%D1%80%D0%B3%D0%B5+9%2C+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0">
-              Построить маршрут
-            </a>
-            <a class="btn btn--ghost ripple" href="https://wa.me/79999999999">Написать в WhatsApp</a>
-          </div>
-        </div>
-
-        <!-- 11. FINAL CTA -->
-        <div class="final-cta reveal" data-anim="fade-up" style="--d:.3s">
-          <p>«Красота — это не услуга. <em>Это работа эксперта.</em>»</p>
-          <div class="hero__cta">
-            <a href="https://wa.me/79999999999" class="btn btn--primary ripple">
-              Записаться · Ресницы & Брови
-            </a>
-            <a href="https://wa.me/79999999999" class="btn btn--secondary ripple">
-              Записаться · Любить волосы
-            </a>
-          </div>
-        </div>
-
-        <footer class="footer">
-          <div class="footer__brand">ЗОРГЕ · 9 · BEAUTY</div>
-          <p>© <span id="year"></span> Все права защищены. Сделано с вниманием к деталям.</p>
-        </footer>
-      </section>
-    </main>
-
-    <!-- =================== BOTTOM TAB BAR =================== -->
-    <nav class="tabbar" id="tabbar">
-      <button class="tab is-active" data-target="home">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11 12 3l9 8M5 10v10h14V10"/></svg>
-        <span>Главная</span>
-      </button>
-      <button class="tab" data-target="lashes">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <span>Услуги</span>
-      </button>
-      <button class="tab tab--center" data-target="contacts" aria-label="Запись">
-        <span class="tab__fab">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M8 2v4M16 2v4M3 9h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-        </span>
-      </button>
-      <button class="tab" data-target="gallery">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m3 17 5-5 4 4 3-3 6 6"/></svg>
-        <span>Галерея</span>
-      </button>
-      <button class="tab" data-target="contacts">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        <span>Контакты</span>
-      </button>
-    </nav>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <p class="footer__brand">B&middot;Space</p>
+      <p class="footer__copy">© <span id="year"></span> Beauty Space</p>
+    </footer>
   </div>
 
-  <!-- Floating WhatsApp (visible on desktop) -->
-  <a class="fab-wa" href="https://wa.me/79999999999" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.4 17.7L2 22l4.4-1.3A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.6.8.8-2.5-.2-.3A8 8 0 1 1 12 20zm4.5-5.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.7.8-.8 1-.3.1-.5 0a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.5 2.5 0 0 0-.8 1.9c0 1.1.8 2.1 1 2.3a8.4 8.4 0 0 0 3.6 3.1c.5.2 1 .3 1.4.4a2 2 0 0 0 1.4-.5 1.7 1.7 0 0 0 .5-1.2c0-.2-.1-.4-.3-.5z"/></svg>
-    <span>Написать</span>
-  </a>
-
-  <script src="js/main.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
