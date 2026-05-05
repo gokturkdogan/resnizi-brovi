@@ -40,16 +40,37 @@ html, body {
   overscroll-behavior: none;
 }
 
+/* Mobile-first: full screen, no body scroll. The .phone is the viewport
+   and the inner .screen is the only scroll surface — exactly like a
+   native app shell. */
 body {
-  min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, #3a1c33 0%, transparent 60%),
-    radial-gradient(1200px 600px at 110% 20%, #1d0e1a 0%, transparent 60%),
-    linear-gradient(180deg, #1d0f1a 0%, #120814 100%);
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--bg);
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  padding: 24px 12px;
+  padding: 0;
+  position: fixed;
+  inset: 0;
+}
+
+@media (min-width: 700px) {
+  body {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 28px;
+    align-items: center;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #3a1c33 0%, transparent 60%),
+      radial-gradient(1200px 600px at 110% 20%, #1d0e1a 0%, transparent 60%),
+      linear-gradient(180deg, #1d0f1a 0%, #120814 100%);
+  }
 }
 
 img { max-width: 100%; display: block; }
@@ -64,18 +85,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
   position: relative;
   width: 100%;
   max-width: 440px;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   background: var(--bg);
   border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-2);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   isolation: isolate;
 }
 
 @media (min-width: 700px) {
-  body { padding: 28px; }
   .phone {
     max-width: 420px;
     height: min(900px, calc(100vh - 56px));
