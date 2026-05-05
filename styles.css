@@ -24,9 +24,9 @@
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --col-w: 460px;
-  --r-lg: 22px;
-  --r-md: 16px;
-  --r-sm: 10px;
+  --r-lg: 0;
+  --r-md: 0;
+  --r-sm: 0;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --gap: 14px;
@@ -89,7 +89,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .topbar__menu {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: 0;
   border: 1px solid rgba(243, 234, 215, 0.25);
   display: grid;
   place-items: center;
@@ -153,7 +153,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background: var(--b-bg);
   color: var(--b-fg);
   border: 1px solid var(--b-bd);
-  border-radius: 8px;
+  border-radius: 0;
   transition: transform 0.4s var(--ease), background 0.3s var(--ease),
     color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
@@ -164,7 +164,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   --b-bg: var(--brown);
   --b-fg: var(--cream);
   --b-bd: var(--brown);
-  border-radius: 4px;
+  border-radius: 0;
 }
 .btn--brown:hover { --b-bg: var(--brown-2); --b-bd: var(--brown-2); }
 
@@ -172,7 +172,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   --b-bg: var(--cream);
   --b-fg: var(--ink);
   --b-bd: var(--cream);
-  border-radius: 4px;
+  border-radius: 0;
 }
 .btn--cream:hover { --b-bg: #fff; --b-bd: #fff; }
 
@@ -180,7 +180,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   --b-bg: var(--cream);
   --b-fg: var(--ink);
   --b-bd: var(--cream);
-  border-radius: 4px;
+  border-radius: 0;
 }
 .btn--white:hover { --b-bg: #fff; --b-bd: #fff; }
 
@@ -188,7 +188,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   --b-bg: transparent;
   --b-fg: var(--cream);
   --b-bd: rgba(243, 234, 215, 0.55);
-  border-radius: 4px;
+  border-radius: 0;
 }
 .btn--outline:hover {
   --b-bg: var(--cream);
@@ -318,7 +318,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   position: relative;
   padding: 6px 16px;
   border: 1px solid rgba(243, 234, 215, 0.35);
-  border-radius: 999px;
+  border-radius: 0;
   font-style: italic;
   font-weight: 500;
 }
@@ -403,7 +403,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: 22px;
   height: 38px;
   border: 1px solid rgba(243, 234, 215, 0.4);
-  border-radius: 14px;
+  border-radius: 0;
   transform: translateX(-50%);
   display: grid;
   place-items: center;
@@ -412,7 +412,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: 2px;
   height: 8px;
   background: var(--cream);
-  border-radius: 2px;
+  border-radius: 0;
   animation: introDot 1.8s var(--ease) infinite;
 }
 
@@ -479,7 +479,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 .hero__photo {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   border-radius: var(--r-md);
   background: #c8b89d center/cover no-repeat;
   margin-bottom: 22px;
@@ -518,7 +518,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .hero__mini {
   width: 88px;
   height: 88px;
-  border-radius: 50%;
+  border-radius: 0;
   background: #c8b89d center/cover no-repeat;
   margin: 0 auto 18px;
   border: 4px solid var(--cream-2);
@@ -594,7 +594,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   flex-direction: column;
   gap: 1px;
   background: rgba(243, 234, 215, 0.18);
-  border-radius: 6px;
+  border-radius: 0;
   overflow: hidden;
   margin-bottom: 16px;
 }
@@ -770,7 +770,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-size: 13px;
   line-height: 1.15;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 0;
   text-align: left;
 }
 .works-grid__label--bottom {
@@ -805,7 +805,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .bonus__card {
   background: var(--brown);
   color: var(--cream);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 22px 18px;
   display: inline-block;
   max-width: 280px;
@@ -1069,12 +1069,12 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .page {
     padding-top: 0;
     box-shadow: 0 60px 100px -50px rgba(0, 0, 0, 0.7);
-    border-radius: 28px;
+    border-radius: 0;
     overflow: clip;
     background: var(--bg);
   }
-  .topbar { margin-top: 0; border-radius: 28px 28px 0 0; }
-  .footer { border-radius: 0 0 28px 28px; }
+  .topbar { margin-top: 0; border-radius: 0; }
+  .footer { border-radius: 0; }
 }
 
 @media (max-width: 380px) {
