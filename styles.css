@@ -1,6 +1,6 @@
 /* =========================================================
    Beauty Space — narrow vertical mobile-card landing
-   Light editorial theme: white field, black type, hairline borders.
+   Light editorial theme: white field, dark type, hairline borders.
    ========================================================= */
 
 /* ---------- Tokens ---------- */
@@ -10,7 +10,7 @@
   --cream: #ffffff;
   --cream-2: #e8e8e8;       /* subtle border / chip stroke */
   --cream-3: #5c5c5c;       /* secondary accent on white */
-  --brown: #000000;         /* primary accent (ink) */
+  --brown: #000000;
   --brown-2: #1a1a1a;
   --brown-3: #333333;
   --ink: #000000;
