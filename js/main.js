@@ -1,5 +1,5 @@
 /* ============================================================
-   Resnizi Brovi · Native-style interactions (pure JS)
+   Зорге 9 · Beauty Atelier — native-style interactions (pure JS)
    ============================================================ */
 
 (() => {
@@ -23,24 +23,7 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   /* -------------------------------------------------------
-     3) Sparkles inside hero
-  ------------------------------------------------------- */
-  const sparkBox = document.querySelector('.sparkles');
-  if (sparkBox) {
-    const SPARKLES = 22;
-    for (let i = 0; i < SPARKLES; i++) {
-      const s = document.createElement('span');
-      s.style.left = `${Math.random() * 100}%`;
-      s.style.top = `${Math.random() * 100}%`;
-      s.style.animationDelay = `${(Math.random() * 3).toFixed(2)}s`;
-      s.style.animationDuration = `${(2 + Math.random() * 3).toFixed(2)}s`;
-      s.style.transform = `scale(${0.4 + Math.random() * 1.4})`;
-      sparkBox.appendChild(s);
-    }
-  }
-
-  /* -------------------------------------------------------
-     4) Story-style progress segments (one per section)
+     3) Story-style progress segments (one per section)
   ------------------------------------------------------- */
   const screen = document.getElementById('screen');
   const sections = Array.from(document.querySelectorAll('.section'));
@@ -59,7 +42,7 @@
     : [];
 
   /* -------------------------------------------------------
-     5) Tab bar wiring
+     4) Tab bar wiring
   ------------------------------------------------------- */
   const tabs = Array.from(document.querySelectorAll('.tab'));
   tabs.forEach(tab => {
@@ -76,7 +59,7 @@
   });
 
   /* -------------------------------------------------------
-     6) Anchor scroll inside the screen
+     5) Anchor scroll inside the screen
   ------------------------------------------------------- */
   document.querySelectorAll('a[data-scroll]').forEach(a => {
     a.addEventListener('click', e => {
@@ -91,10 +74,13 @@
   });
 
   /* -------------------------------------------------------
-     7) Active section detection (scroll-driven)
+     6) Active section detection (scroll-driven)
   ------------------------------------------------------- */
+  // Tabs only highlight when their target is the currently visible section.
+  // Multiple tabs can share a target (e.g. center FAB and Контакты).
   let activeIdx = 0;
   let ticking = false;
+
   function onScroll() {
     if (!screen) return;
     const sTop = screen.scrollTop;
@@ -108,7 +94,6 @@
       const visible = Math.max(0, Math.min(sH, bottom) - Math.max(0, top));
       if (visible > bestVis) { bestVis = visible; bestIdx = i; }
 
-      // story progress per segment
       if (segments[i]) {
         let p = 0;
         if (bottom <= 0) p = 1;
@@ -142,7 +127,7 @@
   }
 
   /* -------------------------------------------------------
-     8) Reveal-on-scroll (IntersectionObserver)
+     7) Reveal-on-scroll (IntersectionObserver)
   ------------------------------------------------------- */
   const reveals = document.querySelectorAll('.reveal, .reveal-line');
   const io = new IntersectionObserver((entries) => {
@@ -155,14 +140,13 @@
   }, { root: screen, threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
   reveals.forEach(el => io.observe(el));
 
-  // Hero title reveal-lines should also fire on initial paint
   setTimeout(() => {
     document.querySelectorAll('.section--hero .reveal-line').forEach(el => el.classList.add('is-in'));
     document.querySelectorAll('.section--hero .reveal').forEach(el => el.classList.add('is-in'));
   }, 200);
 
   /* -------------------------------------------------------
-     9) Counter animation for hero stats
+     8) Counter animation for hero stats
   ------------------------------------------------------- */
   const counters = document.querySelectorAll('[data-count]');
   const counterIO = new IntersectionObserver((entries) => {
@@ -177,7 +161,7 @@
       const step = (now) => {
         const t = Math.min(1, (now - start) / dur);
         const v = Math.round(target * easeOut(t));
-        el.textContent = v.toLocaleString('tr-TR') + suffix;
+        el.textContent = v.toLocaleString('ru-RU') + suffix;
         if (t < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -187,7 +171,7 @@
   counters.forEach(c => counterIO.observe(c));
 
   /* -------------------------------------------------------
-     10) Ripple effect for buttons / contacts
+     9) Ripple effect for buttons / contacts
   ------------------------------------------------------- */
   document.querySelectorAll('.ripple').forEach(el => {
     el.addEventListener('pointerdown', (e) => {
@@ -206,7 +190,7 @@
   });
 
   /* -------------------------------------------------------
-     11) Magnetic + Tilt effect on feature cards (pointer)
+     10) Magnetic + Tilt effect on feature cards (pointer)
   ------------------------------------------------------- */
   document.querySelectorAll('.tilt').forEach(card => {
     let raf = 0;
@@ -227,7 +211,7 @@
   });
 
   /* -------------------------------------------------------
-     12) Parallax for hero blobs
+     11) Parallax for hero blobs
   ------------------------------------------------------- */
   const blobs = document.querySelectorAll('.blob');
   if (blobs.length && screen) {
@@ -247,29 +231,28 @@
   }
 
   /* -------------------------------------------------------
-     13) Service tap → navigate to contact
+     12) Gallery tabs (Lashes / Hair)
   ------------------------------------------------------- */
-  document.querySelectorAll('.service__more, .service').forEach(node => {
-    node.addEventListener('click', (e) => {
-      // ignore propagation from inner button so we don't double scroll
-      if (e.currentTarget.classList.contains('service') &&
-          e.target.closest('.service__more')) return;
-      const target = document.querySelector('[data-section="contact"]');
-      if (!target || !screen) return;
-      screen.scrollTo({ top: target.offsetTop - 4, behavior: 'smooth' });
-      hapticBuzz(10);
+  const gTabs = document.querySelectorAll('.g-tab');
+  const gPanes = document.querySelectorAll('[data-gpane]');
+  gTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.gtab;
+      gTabs.forEach(t => t.classList.toggle('is-active', t === tab));
+      gPanes.forEach(p => p.classList.toggle('is-hidden', p.dataset.gpane !== key));
+      hapticBuzz(6);
     });
   });
 
   /* -------------------------------------------------------
-     14) Share button (Web Share API fallback)
+     13) Share button (Web Share API fallback)
   ------------------------------------------------------- */
   const shareBtn = document.getElementById('shareBtn');
   if (shareBtn) {
     shareBtn.addEventListener('click', async () => {
       const data = {
-        title: 'Resnizi Brovi',
-        text: 'Bakışların en güzel çerçevesi · Kirpik & Kaş Atölyesi',
+        title: 'Зорге 9 · Beauty Atelier',
+        text: 'Экспертное beauty-пространство · Карина Фельдбуш & Анастасия Лукашкина',
         url: location.href
       };
       try {
@@ -277,14 +260,14 @@
           await navigator.share(data);
         } else if (navigator.clipboard) {
           await navigator.clipboard.writeText(location.href);
-          toast('Bağlantı kopyalandı');
+          toast('Ссылка скопирована');
         }
       } catch (_) {/* cancelled */}
     });
   }
 
   /* -------------------------------------------------------
-     15) Toast helper
+     14) Toast helper
   ------------------------------------------------------- */
   function toast(msg) {
     const t = document.createElement('div');
@@ -294,13 +277,13 @@
       left: '50%',
       bottom: 'calc(96px + env(safe-area-inset-bottom, 0px))',
       transform: 'translateX(-50%) translateY(20px)',
-      background: 'rgba(20,8,16,.92)',
-      color: '#fff',
+      background: 'rgba(20, 17, 13, .92)',
+      color: '#e8d5ad',
       padding: '10px 16px',
       borderRadius: '99px',
-      fontSize: '13px',
-      fontWeight: 600,
-      letterSpacing: '.2px',
+      fontSize: '12.5px',
+      fontWeight: 500,
+      letterSpacing: '.5px',
       zIndex: 200,
       opacity: '0',
       transition: 'opacity .25s ease, transform .25s ease'
@@ -318,24 +301,14 @@
   }
 
   /* -------------------------------------------------------
-     16) Lightweight haptic feedback (if supported)
+     15) Lightweight haptic feedback (if supported)
   ------------------------------------------------------- */
   function hapticBuzz(ms = 6) {
     if (navigator.vibrate) navigator.vibrate(ms);
   }
 
   /* -------------------------------------------------------
-     17) Service-card "expand" interaction
-  ------------------------------------------------------- */
-  document.querySelectorAll('.service__more').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      hapticBuzz(8);
-    });
-  });
-
-  /* -------------------------------------------------------
-     18) Pointer-following spotlight on hero
+     16) Pointer-following spotlight on hero
   ------------------------------------------------------- */
   const hero = document.querySelector('.section--hero');
   if (hero) {
@@ -349,12 +322,12 @@
   }
 
   /* -------------------------------------------------------
-     19) Gallery items: tap → simple zoom toast (placeholder)
+     17) Gallery items: tap → toast (placeholder)
   ------------------------------------------------------- */
   document.querySelectorAll('.g-item').forEach((g, i) => {
     g.addEventListener('click', () => {
       hapticBuzz(6);
-      toast(`Görsel ${i + 1} · yakında`);
+      toast(`Работа ${i + 1} · скоро`);
     });
   });
 })();
