@@ -17,27 +17,13 @@
   }
 
   /* -------------------------------------------------------
-     2) Live status-bar clock
-  ------------------------------------------------------- */
-  const clockEl = document.getElementById('clock');
-  function tickClock() {
-    if (!clockEl) return;
-    const d = new Date();
-    const hh = String(d.getHours()).padStart(2, '0');
-    const mm = String(d.getMinutes()).padStart(2, '0');
-    clockEl.textContent = `${hh}:${mm}`;
-  }
-  tickClock();
-  setInterval(tickClock, 30000);
-
-  /* -------------------------------------------------------
-     3) Footer year
+     2) Footer year
   ------------------------------------------------------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   /* -------------------------------------------------------
-     4) Sparkles inside hero
+     3) Sparkles inside hero
   ------------------------------------------------------- */
   const sparkBox = document.querySelector('.sparkles');
   if (sparkBox) {
@@ -54,7 +40,7 @@
   }
 
   /* -------------------------------------------------------
-     5) Story-style progress segments (one per section)
+     4) Story-style progress segments (one per section)
   ------------------------------------------------------- */
   const screen = document.getElementById('screen');
   const sections = Array.from(document.querySelectorAll('.section'));
@@ -73,7 +59,7 @@
     : [];
 
   /* -------------------------------------------------------
-     6) Tab bar wiring
+     5) Tab bar wiring
   ------------------------------------------------------- */
   const tabs = Array.from(document.querySelectorAll('.tab'));
   tabs.forEach(tab => {
@@ -90,7 +76,7 @@
   });
 
   /* -------------------------------------------------------
-     7) Anchor scroll inside the screen
+     6) Anchor scroll inside the screen
   ------------------------------------------------------- */
   document.querySelectorAll('a[data-scroll]').forEach(a => {
     a.addEventListener('click', e => {
@@ -105,7 +91,7 @@
   });
 
   /* -------------------------------------------------------
-     8) Active section detection (scroll-driven)
+     7) Active section detection (scroll-driven)
   ------------------------------------------------------- */
   let activeIdx = 0;
   let ticking = false;
@@ -156,7 +142,7 @@
   }
 
   /* -------------------------------------------------------
-     9) Reveal-on-scroll (IntersectionObserver)
+     8) Reveal-on-scroll (IntersectionObserver)
   ------------------------------------------------------- */
   const reveals = document.querySelectorAll('.reveal, .reveal-line');
   const io = new IntersectionObserver((entries) => {
@@ -176,7 +162,7 @@
   }, 200);
 
   /* -------------------------------------------------------
-     10) Counter animation for hero stats
+     9) Counter animation for hero stats
   ------------------------------------------------------- */
   const counters = document.querySelectorAll('[data-count]');
   const counterIO = new IntersectionObserver((entries) => {
@@ -201,7 +187,7 @@
   counters.forEach(c => counterIO.observe(c));
 
   /* -------------------------------------------------------
-     11) Ripple effect for buttons / contacts
+     10) Ripple effect for buttons / contacts
   ------------------------------------------------------- */
   document.querySelectorAll('.ripple').forEach(el => {
     el.addEventListener('pointerdown', (e) => {
@@ -220,7 +206,7 @@
   });
 
   /* -------------------------------------------------------
-     12) Magnetic + Tilt effect on feature cards (pointer)
+     11) Magnetic + Tilt effect on feature cards (pointer)
   ------------------------------------------------------- */
   document.querySelectorAll('.tilt').forEach(card => {
     let raf = 0;
@@ -241,7 +227,7 @@
   });
 
   /* -------------------------------------------------------
-     13) Parallax for hero blobs
+     12) Parallax for hero blobs
   ------------------------------------------------------- */
   const blobs = document.querySelectorAll('.blob');
   if (blobs.length && screen) {
@@ -261,7 +247,7 @@
   }
 
   /* -------------------------------------------------------
-     14) Service tap → navigate to contact
+     13) Service tap → navigate to contact
   ------------------------------------------------------- */
   document.querySelectorAll('.service__more, .service').forEach(node => {
     node.addEventListener('click', (e) => {
@@ -276,7 +262,7 @@
   });
 
   /* -------------------------------------------------------
-     15) Share button (Web Share API fallback)
+     14) Share button (Web Share API fallback)
   ------------------------------------------------------- */
   const shareBtn = document.getElementById('shareBtn');
   if (shareBtn) {
@@ -298,7 +284,7 @@
   }
 
   /* -------------------------------------------------------
-     16) Toast helper
+     15) Toast helper
   ------------------------------------------------------- */
   function toast(msg) {
     const t = document.createElement('div');
@@ -332,14 +318,14 @@
   }
 
   /* -------------------------------------------------------
-     17) Lightweight haptic feedback (if supported)
+     16) Lightweight haptic feedback (if supported)
   ------------------------------------------------------- */
   function hapticBuzz(ms = 6) {
     if (navigator.vibrate) navigator.vibrate(ms);
   }
 
   /* -------------------------------------------------------
-     18) Service-card "expand" interaction
+     17) Service-card "expand" interaction
   ------------------------------------------------------- */
   document.querySelectorAll('.service__more').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -349,7 +335,7 @@
   });
 
   /* -------------------------------------------------------
-     19) Pointer-following spotlight on hero
+     18) Pointer-following spotlight on hero
   ------------------------------------------------------- */
   const hero = document.querySelector('.section--hero');
   if (hero) {
@@ -363,7 +349,7 @@
   }
 
   /* -------------------------------------------------------
-     20) Gallery items: tap → simple zoom toast (placeholder)
+     19) Gallery items: tap → simple zoom toast (placeholder)
   ------------------------------------------------------- */
   document.querySelectorAll('.g-item').forEach((g, i) => {
     g.addEventListener('click', () => {

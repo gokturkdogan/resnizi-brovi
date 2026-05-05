@@ -121,35 +121,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 
 /* ============================================================
-   STATUS BAR
-   ============================================================ */
-.statusbar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: max(8px, var(--safe-top)) 22px 4px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  z-index: 30;
-}
-.statusbar__time { letter-spacing: .2px; }
-.statusbar__notch { width: 60px; height: 18px; }
-.statusbar__icons { display: inline-flex; gap: 6px; align-items: center; }
-.statusbar__icons svg { height: 11px; width: auto; fill: currentColor; }
-
-@media (min-width: 700px) {
-  .statusbar { padding-top: 16px; }
-}
-
-/* ============================================================
    STORY-STYLE PROGRESS SEGMENTS
    ============================================================ */
 .story-progress {
   display: flex;
   gap: 4px;
-  padding: 8px 16px 6px;
+  padding: max(10px, var(--safe-top)) 16px 6px;
   z-index: 30;
 }
 .story-progress__seg {
