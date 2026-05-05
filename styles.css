@@ -1,23 +1,22 @@
 /* =========================================================
    Beauty Space — narrow vertical mobile-card landing
-   Reference: Taplink-style, single column, dark coffee bg,
-   cream cards, mocha brown accents, italic serif highlights.
+   Light editorial theme: white field, black type, hairline borders.
    ========================================================= */
 
 /* ---------- Tokens ---------- */
 :root {
-  --bg: #1d1816;            /* warm coffee/charcoal */
-  --bg-2: #14110f;          /* deeper background for footer */
-  --cream: #f3ead7;         /* milky beige card */
-  --cream-2: #ebe0c8;       /* slightly deeper cream */
-  --cream-3: #d8c9a8;       /* warm beige accent */
-  --brown: #4d4036;         /* mocha brown */
-  --brown-2: #3a2f27;       /* darker brown */
-  --brown-3: #6a594a;       /* muted brown for hover */
-  --ink: #221c16;           /* near-black warm */
-  --muted: #8a7e6e;
-  --line: rgba(34, 28, 22, 0.12);
-  --line-light: rgba(243, 234, 215, 0.18);
+  --bg: #ffffff;
+  --bg-2: #ffffff;
+  --cream: #ffffff;
+  --cream-2: #e8e8e8;       /* subtle border / chip stroke */
+  --cream-3: #5c5c5c;       /* secondary accent on white */
+  --brown: #000000;         /* primary accent (ink) */
+  --brown-2: #1a1a1a;
+  --brown-3: #333333;
+  --ink: #000000;
+  --muted: #666666;
+  --line: rgba(0, 0, 0, 0.12);
+  --line-light: rgba(0, 0, 0, 0.08);
 
   --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
@@ -40,7 +39,7 @@ body {
   font-family: var(--sans);
   font-size: 15px;
   line-height: 1.55;
-  color: #efe6d3;
+  color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -72,10 +71,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(29, 24, 22, 0.72);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid rgba(243, 234, 215, 0.06);
+  border-bottom: 1px solid var(--line);
 }
 
 .topbar__brand {
@@ -83,14 +82,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-style: italic;
   font-size: 18px;
   letter-spacing: 0.04em;
-  color: var(--cream);
+  color: var(--ink);
 }
 
 .topbar__menu {
   width: 36px;
   height: 36px;
   border-radius: 0;
-  border: 1px solid rgba(243, 234, 215, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.22);
   display: grid;
   place-items: center;
   gap: 4px;
@@ -101,11 +100,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: block;
   width: 14px;
   height: 1.4px;
-  background: var(--cream);
+  background: var(--ink);
   transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
 }
 .topbar__menu:hover {
-  background: rgba(243, 234, 215, 0.08);
+  background: rgba(0, 0, 0, 0.05);
 }
 .topbar__menu.is-open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
 .topbar__menu.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
@@ -130,16 +129,16 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-size: 22px;
   letter-spacing: 0.02em;
   padding: 12px 4px;
-  color: var(--cream);
+  color: var(--ink);
   border-bottom: 1px solid var(--line-light);
 }
 .drawer a:last-child { border-bottom: 0; }
 
 /* ---------- Buttons ---------- */
 .btn {
-  --b-bg: var(--brown);
-  --b-fg: var(--cream);
-  --b-bd: var(--brown);
+  --b-bg: transparent;
+  --b-fg: var(--ink);
+  --b-bd: var(--ink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -161,39 +160,39 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .btn--block { width: 100%; display: flex; }
 
 .btn--brown {
-  --b-bg: var(--brown);
-  --b-fg: var(--cream);
-  --b-bd: var(--brown);
+  --b-bg: transparent;
+  --b-fg: var(--ink);
+  --b-bd: var(--ink);
   border-radius: 0;
 }
-.btn--brown:hover { --b-bg: var(--brown-2); --b-bd: var(--brown-2); }
+.btn--brown:hover { --b-bg: rgba(0, 0, 0, 0.06); --b-bd: var(--ink); }
 
 .btn--cream {
-  --b-bg: var(--cream);
+  --b-bg: #ffffff;
   --b-fg: var(--ink);
-  --b-bd: var(--cream);
+  --b-bd: var(--ink);
   border-radius: 0;
 }
-.btn--cream:hover { --b-bg: #fff; --b-bd: #fff; }
+.btn--cream:hover { --b-bg: rgba(0, 0, 0, 0.04); --b-bd: var(--ink); }
 
 .btn--white {
-  --b-bg: var(--cream);
+  --b-bg: #ffffff;
   --b-fg: var(--ink);
-  --b-bd: var(--cream);
+  --b-bd: var(--ink);
   border-radius: 0;
 }
-.btn--white:hover { --b-bg: #fff; --b-bd: #fff; }
+.btn--white:hover { --b-bg: rgba(0, 0, 0, 0.04); --b-bd: var(--ink); }
 
 .btn--outline {
   --b-bg: transparent;
-  --b-fg: var(--cream);
-  --b-bd: rgba(243, 234, 215, 0.55);
+  --b-fg: var(--ink);
+  --b-bd: rgba(0, 0, 0, 0.35);
   border-radius: 0;
 }
 .btn--outline:hover {
-  --b-bg: var(--cream);
+  --b-bg: rgba(0, 0, 0, 0.04);
   --b-fg: var(--ink);
-  --b-bd: var(--cream);
+  --b-bd: var(--ink);
 }
 
 /* ---------- Card (cream) — main building block ---------- */
@@ -204,16 +203,17 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   padding: 26px 22px 28px;
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--line);
 }
 
 /* ---------- Card-block (open layout on dark bg) ---------- */
 .card-block {
   background: transparent;
-  color: var(--cream);
+  color: var(--ink);
   padding: 22px 4px 12px;
 }
 
-/* ---------- Block titles (white on dark) ---------- */
+/* ---------- Block titles ---------- */
 .block__title {
   font-family: var(--sans);
   font-weight: 700;
@@ -223,7 +223,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-align: center;
   margin: 4px 0 22px;
   text-transform: uppercase;
-  color: var(--cream);
+  color: var(--ink);
 }
 .block__title em {
   display: inline;
@@ -232,7 +232,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-weight: 500;
   text-transform: lowercase;
   letter-spacing: 0;
-  color: var(--cream);
+  color: var(--cream-3);
   font-size: 1.05em;
   margin-left: 4px;
 }
@@ -246,9 +246,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   overflow: hidden;
   isolation: isolate;
   min-height: 600px;
-  color: var(--cream);
+  color: var(--ink);
   display: flex;
   align-items: stretch;
+  border: 1px solid var(--line);
 }
 
 .intro__bg {
@@ -257,16 +258,16 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background:
     linear-gradient(
       180deg,
-      rgba(29, 24, 22, 0) 0%,
-      rgba(29, 24, 22, 0) 26%,
-      rgba(29, 24, 22, 0.52) 46%,
-      rgba(29, 24, 22, 0.88) 66%,
-      rgba(29, 24, 22, 0.96) 100%
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 18%,
+      rgba(255, 255, 255, 0.55) 42%,
+      rgba(255, 255, 255, 0.88) 62%,
+      rgba(255, 255, 255, 0.96) 100%
     ),
-    linear-gradient(180deg, rgba(20, 15, 12, 0.45), rgba(20, 15, 12, 0.85)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.72)),
     url("assets/IMG_1762-c172f222-f801-40d9-b93b-046e8a991f2d.png")
       center / cover no-repeat;
-  filter: saturate(0.85);
+  filter: saturate(0.78) contrast(1.02);
   z-index: -2;
 }
 
@@ -274,8 +275,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, transparent 0%, transparent 30%, rgba(20, 15, 12, 0.35) 100%),
-    radial-gradient(120% 80% at 50% 100%, rgba(20, 15, 12, 0.92) 0%, rgba(20, 15, 12, 0.38) 44%, transparent 100%);
+    linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255, 255, 255, 0.28) 100%),
+    radial-gradient(120% 80% at 50% 100%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.35) 48%, transparent 100%);
   z-index: -1;
 }
 
@@ -311,13 +312,13 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-style: italic;
   font-size: 14px;
   letter-spacing: 0.06em;
-  color: var(--cream-3);
+  color: var(--muted);
   text-transform: lowercase;
 }
 .intro__badge em {
   position: relative;
   padding: 6px 16px;
-  border: 1px solid rgba(243, 234, 215, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.28);
   border-radius: 0;
   font-style: italic;
   font-weight: 500;
@@ -330,7 +331,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   line-height: 1.05;
   letter-spacing: 0.005em;
   margin: 12px 0 18px;
-  color: var(--cream);
+  color: var(--ink);
   text-transform: none;
 }
 .intro__title em {
@@ -346,8 +347,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .intro__divider {
   width: 38px;
   height: 1px;
-  background: var(--cream-3);
-  opacity: 0.6;
+  background: var(--ink);
+  opacity: 0.35;
   margin: 4px auto 18px;
 }
 
@@ -356,14 +357,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-family: var(--sans);
   font-size: 13px;
   letter-spacing: 0.02em;
-  color: var(--cream);
+  color: var(--ink);
 }
 .intro__sub strong {
   font-family: var(--sans);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--cream);
+  color: var(--ink);
   font-size: 12px;
 }
 .intro__sub span {
@@ -382,7 +383,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-style: italic;
   font-size: clamp(16px, 4.5vw, 19px);
   line-height: 1.3;
-  color: var(--cream);
+  color: var(--ink);
   max-width: 320px;
 }
 .intro__tagline em {
@@ -402,7 +403,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   bottom: 22px;
   width: 22px;
   height: 38px;
-  border: 1px solid rgba(243, 234, 215, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.32);
   border-radius: 0;
   transform: translateX(-50%);
   display: grid;
@@ -411,7 +412,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .intro__scroll span {
   width: 2px;
   height: 8px;
-  background: var(--cream);
+  background: var(--ink);
   border-radius: 0;
   animation: introDot 1.8s var(--ease) infinite;
 }
@@ -481,9 +482,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: var(--r-md);
-  background: #c8b89d center/cover no-repeat;
+  background: #e8e8e8 center/cover no-repeat;
   margin-bottom: 22px;
-  filter: saturate(0.95);
+  filter: saturate(0.88) contrast(1.02);
 }
 
 #karina .hero__photo {
@@ -503,7 +504,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-align: center;
   margin: 28px 0 4px;
   color: transparent;
-  -webkit-text-stroke: 1.2px rgba(34, 28, 22, 0.18);
+  -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.12);
   line-height: 1;
   user-select: none;
 }
@@ -519,9 +520,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: 88px;
   height: 88px;
   border-radius: 0;
-  background: #c8b89d center/cover no-repeat;
+  background: #e8e8e8 center/cover no-repeat;
   margin: 0 auto 18px;
-  border: 4px solid var(--cream-2);
+  border: 1px solid var(--line);
 }
 .hero__mini[data-photo="karina-mini"] {
   background-image: url("assets/IMG_1750-898677b8-6890-433f-877e-004cdd10316f.png");
@@ -572,8 +573,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
    SERVICES — brown card with arrow rows
    ===================================================== */
 .services {
-  background: var(--brown);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   padding: 22px 18px 22px;
   border-radius: var(--r-lg);
 }
@@ -586,14 +587,15 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-align: center;
   margin: 6px 0 18px;
   text-transform: uppercase;
-  color: var(--cream);
+  color: var(--ink);
 }
 
 .services__list {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: rgba(243, 234, 215, 0.18);
+  gap: 0;
+  background: transparent;
+  border: 1px solid var(--line);
   border-radius: 0;
   overflow: hidden;
   margin-bottom: 16px;
@@ -604,19 +606,21 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   align-items: center;
   justify-content: space-between;
   padding: 16px 18px;
-  background: var(--brown);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   font-size: 12px;
   letter-spacing: 0.18em;
   font-weight: 500;
+  border-bottom: 1px solid var(--line);
   transition: background 0.3s var(--ease);
 }
-.services__list li a:hover { background: var(--brown-3); }
+.services__list li:last-child a { border-bottom: 0; }
+.services__list li a:hover { background: rgba(0, 0, 0, 0.04); }
 
 .services__list li a i {
   font-style: normal;
   font-size: 22px;
-  color: var(--cream);
+  color: var(--ink);
   font-weight: 300;
   line-height: 1;
 }
@@ -671,7 +675,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .why-grid > .why-tile--cream:nth-child(1),
 .why-grid > .why-tile--cream:nth-child(2) {
   position: relative;
-  color: var(--cream);
+  color: var(--ink);
 }
 .why-grid > .why-tile--cream:nth-child(1) .why-tile__num,
 .why-grid > .why-tile--cream:nth-child(2) .why-tile__num {
@@ -679,24 +683,24 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 .why-grid > .why-tile--cream:nth-child(1) {
-  background-color: #2a221c;
-  background-image: linear-gradient(180deg, rgba(20, 15, 12, 0.62), rgba(20, 15, 12, 0.9)),
+  background-color: #f4f4f4;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.92)),
     url("assets/IMG_1739-0f3cd4cf-7261-4320-b085-94cc7817aade.png");
   background-position: center 30%;
 }
 
 .why-grid > .why-tile--cream:nth-child(2) {
-  background-color: #2a221c;
-  background-image: linear-gradient(180deg, rgba(20, 15, 12, 0.62), rgba(20, 15, 12, 0.9)),
+  background-color: #f4f4f4;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.92)),
     url("assets/IMG_1723-4dd00a52-1e6c-40fa-85a1-44c6f8df1dc8.png");
   background-position: center 62%;
 }
 
 .why-tile--dark {
-  background: #2a221c center/cover no-repeat;
-  color: var(--cream);
+  background: #e8e8e8 center/cover no-repeat;
+  color: var(--ink);
   position: relative;
-  background-image: linear-gradient(180deg, rgba(20, 15, 12, 0.42), rgba(20, 15, 12, 0.72)),
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.88)),
     url("assets/IMG_1750-898677b8-6890-433f-877e-004cdd10316f.png");
 }
 .why-tile--dark .why-tile__num { color: var(--cream-3); }
@@ -714,7 +718,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .works-grid__cell {
   position: relative;
   border-radius: var(--r-md);
-  background: #c8b89d center/cover no-repeat;
+  background: #e8e8e8 center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -772,6 +776,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   padding: 8px 12px;
   border-radius: 0;
   text-align: left;
+  border: 1px solid var(--line);
 }
 .works-grid__label--bottom {
   top: auto;
@@ -794,6 +799,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   padding: 30px 24px;
   text-align: center;
   overflow: hidden;
+  border: 1px solid var(--line);
 }
 .bonus__word {
   font-family: var(--display);
@@ -803,7 +809,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--brown);
 }
 .bonus__card {
-  background: var(--brown);
+  background: var(--ink);
   color: var(--cream);
   border-radius: 0;
   padding: 22px 18px;
@@ -812,7 +818,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   width: 100%;
   position: relative;
   transform: rotate(-3deg);
-  box-shadow: 0 18px 30px -20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 14px 28px -18px rgba(0, 0, 0, 0.18);
 }
 .bonus__big {
   font-family: var(--sans);
@@ -838,6 +844,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   border-radius: var(--r-md);
   padding: 22px 22px 18px;
   margin-bottom: 10px;
+  border: 1px solid var(--line);
 }
 .price__head {
   text-align: center;
@@ -876,7 +883,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-align: center;
   margin: 12px 8px 0;
   font-size: 13px;
-  color: var(--cream-3);
+  color: var(--muted);
 }
 .price__note em {
   font-family: var(--serif);
@@ -889,7 +896,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .atmosphere__lead {
   text-align: center;
   font-size: 14px;
-  color: var(--cream);
+  color: var(--ink);
   max-width: 320px;
   margin: -8px auto 18px;
 }
@@ -913,6 +920,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 1px solid var(--line);
 }
 .atmosphere__list li span {
   color: var(--brown);
@@ -929,6 +937,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   border-radius: var(--r-md);
   padding: 22px 22px;
   margin-bottom: 8px;
+  border: 1px solid var(--line);
 }
 .review p {
   font-family: var(--serif);
@@ -964,7 +973,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-style: italic;
   font-size: 22px;
   margin: 0;
-  color: var(--cream);
+  color: var(--ink);
 }
 .contact__street {
   font-family: var(--sans);
@@ -972,7 +981,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-size: 12px;
   letter-spacing: 0.22em;
   margin: 4px 0 0;
-  color: var(--cream-3);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -1001,8 +1010,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(20, 15, 12, 0.58), rgba(20, 15, 12, 0.82)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.58)),
     url("assets/IMG_1771-b49edf62-ace1-40fa-b5da-1c11f93cab13.png") center 42% / cover no-repeat;
 }
 .final__quote {
@@ -1012,12 +1022,13 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-style: italic;
   font-size: clamp(20px, 5vw, 24px);
   line-height: 1.4;
-  color: var(--cream);
+  color: var(--ink);
   margin: 0;
   max-width: 320px;
   text-shadow:
-    0 1px 2px rgba(20, 15, 12, 0.65),
-    0 8px 28px rgba(20, 15, 12, 0.45);
+    0 0 18px rgba(255, 255, 255, 0.95),
+    0 0 32px rgba(255, 255, 255, 0.75),
+    0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* =====================================================
@@ -1028,14 +1039,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   padding: 24px 20px 28px;
   background: var(--bg-2);
   text-align: center;
-  color: rgba(243, 234, 215, 0.5);
+  color: var(--muted);
 }
 .footer__brand {
   font-family: var(--display);
   font-style: italic;
   font-size: 16px;
   margin: 0 0 4px;
-  color: var(--cream);
+  color: var(--ink);
 }
 .footer__copy {
   margin: 0;
@@ -1063,12 +1074,12 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   body {
     padding: 30px 0;
     background:
-      radial-gradient(60% 50% at 50% 0%, rgba(74, 61, 49, 0.45), transparent 70%),
+      radial-gradient(60% 50% at 50% 0%, rgba(0, 0, 0, 0.04), transparent 70%),
       var(--bg);
   }
   .page {
     padding-top: 0;
-    box-shadow: 0 60px 100px -50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 50px 80px -45px rgba(0, 0, 0, 0.08);
     border-radius: 0;
     overflow: clip;
     background: var(--bg);
