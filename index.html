@@ -120,7 +120,7 @@
          1. HERO — KARINA (Ресницы & Брови)
          ==================================================== -->
     <section class="card hero" id="karina">
-      <p class="hero__tag"><em>ресницы<span class="hero__tag-separator"> & </span>брови by</em></p>
+      <p class="hero__tag"><em>"ресницы<span class="hero__tag-separator"> & </span>брови" by</em></p>
       <h1 class="hero__title">КАРИНА <em>Фельдбуш</em></h1>
       <p class="hero__sub">
         10 лет опыта<br />
@@ -269,15 +269,20 @@
     <!-- ====================================================
          2. HERO — ANASTASIA (Любить волосы)
          ==================================================== -->
-    <section class="card hero hero--alt" id="anastasia">
-      <p class="hero__tag"><em>hair master</em></p>
+    <section style="margin-top: 50px;" class="card hero hero--alt" id="anastasia">
+      <p class="hero__tag"><em>"любить волосы" by</em></p>
       <h1 class="hero__title">АНАСТАСИЯ <em>Лукашкина</em></h1>
       <p class="hero__sub">
         длина и плотность,<br />
-        что выглядят <em>как свои</em>
+        что выглядят как свои
       </p>
 
-      <div class="hero__photo" data-photo="anastasia"></div>
+      <div class="hero__photo" data-photo="anastasia">
+        <video class="hero__photo-video" autoplay muted loop playsinline disablepictureinpicture
+          poster="assets/IMG_1730-7b94059d-9ce1-45dc-a3ab-fec17aace7db.png">
+          <source src="assets/IMG_2103.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <a href="#contact" class="btn btn--brown btn--block">Записаться</a>
 
@@ -360,7 +365,12 @@
         <div class="works-grid__cell works-grid__cell--a" data-photo="hair-work-1">
           <span class="works-grid__label">длина и объём<br />— твоя уверенность</span>
         </div>
-        <div class="works-grid__cell works-grid__cell--b" data-photo="hair-work-2"></div>
+        <div class="works-grid__cell works-grid__cell--b" data-photo="hair-work-2">
+          <video class="works-grid__video" autoplay muted loop playsinline disablepictureinpicture
+          poster="assets/IMG_1731-b13b7910-8549-4bea-aa23-ac54f411389d.png">
+          <source src="assets/IMG_1965.mp4" type="video/mp4" />
+        </video>
+        </div>
         <div class="works-grid__cell works-grid__cell--c" data-photo="hair-work-3">
           <span class="works-grid__label works-grid__label--bottom">текстура<br />как свои!</span>
         </div>
@@ -369,7 +379,7 @@
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="card-block" id="pricing">
+<!--     <section class="card-block" id="pricing">
       <h2 class="block__title">ПРАЙС <em>лист</em></h2>
 
       <article class="price">
@@ -399,7 +409,7 @@
       <p class="price__note">
         <em>Финальная стоимость зависит от объёма<br />и индивидуальных особенностей.</em>
       </p>
-    </section>
+    </section> -->
 
     <!-- ============ ATMOSPHERE ============ -->
     <section class="card-block atmosphere">
@@ -417,7 +427,7 @@
     </section>
 
     <!-- ============ REVIEWS ============ -->
-    <section class="card-block reviews">
+<!--     <section class="card-block reviews">
       <h2 class="block__title">ОТЗЫВЫ <em>клиентов</em></h2>
 
       <article class="review">
@@ -432,11 +442,11 @@
         <p>«Премиальный сервис, приватная атмосфера. Ушла как из дорогого отеля, а не из салона.»</p>
         <footer>— Екатерина · <em>Beauty Space</em></footer>
       </article>
-    </section>
+    </section> -->
 
     <!-- ============ CONTACT ============ -->
-    <section class="card-block contact" id="contact">
-      <h2 class="block__title">СВЯЖИСЬ <em>со мной</em><br />для записи</h2>
+    <section style="margin-top: 50px;" class="card-block contact" id="contact">
+      <h2 class="block__title">контакты <em>для консультации</em><br />и записи</h2>
 
       <div class="contact__address">
         <p class="contact__city">Москва</p>
@@ -455,18 +465,17 @@
         target="_blank" rel="noopener">Построить маршрут</a>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="card-block final">
-      <p class="final__quote">
-        <em>«Красота — это не услуга.<br />Это работа эксперта.»</em>
-      </p>
+    <!-- ============ FINAL CTA + FOOTER (shared backdrop) ============ -->
+    <section style="margin-top: 50px;" class="card-block final">
+      <div class="final__stack">
+        <p class="final__quote">
+          <em>«Искусство быть собой,<br />возведенное в абсолют.»</em>
+        </p>
+        <footer class="footer">
+          <p class="footer__copy">© <span id="year"></span>. Все права защищены.</p>
+        </footer>
+      </div>
     </section>
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-      <p class="footer__brand">B&middot;Space</p>
-      <p class="footer__copy">© <span id="year"></span> Beauty Space</p>
-    </footer>
   </div>
 
   <script src="script.js" defer></script>

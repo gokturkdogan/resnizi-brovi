@@ -684,8 +684,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 #anastasia .hero__photo {
-  background-image: url("assets/IMG_1730-7b94059d-9ce1-45dc-a3ab-fec17aace7db.png");
-  background-position: center 25%;
+  background-image: none;
+}
+
+#anastasia .hero__photo-video {
+  object-position: 50% 36%;
 }
 
 .hero__bigword {
@@ -1013,8 +1016,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .works-grid__cell--d { grid-column: 1 / 3; grid-row: 3 / 4; }
 
 .works-grid__cell[data-photo="work-1"] {
-  background-image: url("assets/2026-05-15_22.15.29-eb4a50b4-aa09-4628-abde-69109a0f2fe9.png");
-  background-position: 50% 2%;
+  background-image: url("assets/2026-05-15_22.22.12-bfde6466-8ac5-4a66-b184-7bb77202e5bc.png");
+  background-position: 50% -3%;
 }
 .works-grid__cell[data-photo="work-1"] .works-grid__label {
   top: auto;
@@ -1054,8 +1057,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background-image: url("assets/IMG_1734-8ebadd63-a5af-44f4-8c79-f4432eb58f3e.png");
 }
 .works-grid__cell[data-photo="hair-work-4"] {
-  background-image: url("assets/IMG_1731-b13b7910-8549-4bea-aa23-ac54f411389d.png");
-  background-position: center 22%;
+  background-image: none;
+}
+.works-grid__cell[data-photo="hair-work-4"] .works-grid__video {
+  object-position: 50% 22%;
 }
 
 .works-grid__label {
@@ -1086,6 +1091,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
    BONUS card
    ===================================================== */
 .bonus {
+  display: none;
   padding: 8px 4px 10px;
 }
 .bonus__inner {
@@ -1294,24 +1300,45 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 /* =====================================================
-   FINAL CTA
+   FINAL CTA — full viewport width (breaks out of .page padding)
    ===================================================== */
 .final {
   position: relative;
   isolation: isolate;
-  border-radius: var(--r-lg);
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-bottom: -30px;
+  border-radius: 0;
+  border-width: 1px 0;
   overflow: hidden;
   text-align: center;
-  padding: 48px 20px 44px;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
+  padding: 48px 0 0;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  min-height: 300px;
+  display: block;
+  border-style: solid;
+  border-color: var(--line);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.58)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.7) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.52)),
     url("assets/IMG_1771-b49edf62-ace1-40fa-b5da-1c11f93cab13.png") center 42% / cover no-repeat;
+    display: flex;
 }
+
+.final__stack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 36px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  margin: auto;
+}
+
 .final__quote {
   position: relative;
   z-index: 1;
@@ -1326,6 +1353,33 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
     0 0 18px rgba(255, 255, 255, 0.95),
     0 0 32px rgba(255, 255, 255, 0.75),
     0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Footer sits on final backdrop — no separate band */
+.final .footer {
+  margin: 0;
+  padding: 0 16px 28px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  width: 100%;
+  max-width: none;
+  background: transparent;
+  color: var(--ink);
+}
+
+.final .footer__brand {
+  color: var(--ink);
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.9),
+    0 0 22px rgba(255, 255, 255, 0.65);
+}
+
+.final .footer__copy {
+  color: var(--ink);
+  opacity: 0.88;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.65),
+    0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 /* =====================================================
