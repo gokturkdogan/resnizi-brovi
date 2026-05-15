@@ -595,7 +595,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 .hero__tag {
   margin: 0 0 4px;
-  color: var(--brown);
+  color: #8e5e5e;
   font-size: 14px;
 }
 .hero__tag em {
@@ -672,6 +672,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background-image: none;
 }
 
+#karina .hero__photo-video {
+  object-position: center top;
+}
+
 #anastasia .hero__photo {
   background-image: url("assets/IMG_1730-7b94059d-9ce1-45dc-a3ab-fec17aace7db.png");
   background-position: center 25%;
@@ -698,16 +702,38 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-align: center;
 }
 
+.hero__about-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 14px 16px;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 18px;
+}
+
+.hero__about-head {
+  min-width: 0;
+  text-align: end;
+}
+
+.hero__about-row .hero__welcome-title {
+  margin-bottom: 0;
+}
+
 .hero__mini {
   width: 88px;
   height: 88px;
-  border-radius: 0;
+  border-radius: 50%;
   background: #e8e8e8 center/cover no-repeat;
-  margin: 0 auto 18px;
+  margin: 0;
   border: 1px solid var(--line);
 }
 .hero__mini[data-photo="karina-mini"] {
-  background-image: url("assets/IMG_1750-898677b8-6890-433f-877e-004cdd10316f.png");
+  background-image: url("assets/IMG_1755-27950d5f-b6ca-4bdc-a970-6b8e7ea78eea.png");
+  background-size: 150% auto;
+  background-position: center 25%;
 }
 .hero__mini[data-photo="anastasia-mini"] {
   background-image: url("assets/IMG_1734-8ebadd63-a5af-44f4-8c79-f4432eb58f3e.png");
