@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="description" content="Beauty Space — Ресницы & Брови (Карина) и Любить волосы (Анастасия). ЖК Зорге 9, Москва." />
   <title>Beauty Space — Ресницы & Брови · Любить волосы</title>
@@ -19,11 +19,12 @@
 <body>
   <div class="page">
     <!-- ============ TOP BAR ============ -->
-    <header class="topbar">
-      <a href="#contact" class="topbar__brand">B&middot;Space</a>
-      <button class="topbar__menu" id="menuBtn" aria-label="Меню" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+    <header class="topbar" id="topbar">
+      <div class="topbar__inner">
+        <button class="topbar__menu" id="menuBtn" aria-label="Меню" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <!-- ============ MOBILE NAV ============ -->
@@ -41,11 +42,22 @@
          0. MAIN HERO — Studio intro (new opening)
          ==================================================== -->
     <section class="intro" id="intro">
-      <div class="intro__bg" data-photo="intro" aria-hidden="true"></div>
-      <div class="intro__overlay" aria-hidden="true"></div>
+      <div class="intro__bg" aria-hidden="true">
+        <video
+          class="intro__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          disablepictureinpicture
+          poster="assets/IMG_1762-c172f222-f801-40d9-b93b-046e8a991f2d.png"
+        >
+          <source src="assets/IMG_1952.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <div class="intro__inner">
-        <p class="intro__badge"><em>новое пространство</em></p>
+        <p class="intro__badge"><em>скоро открытие</em></p>
 
         <h1 class="intro__title">
           Экспертное<br />

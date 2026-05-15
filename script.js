@@ -14,6 +14,14 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const topbar = $('#topbar');
+  const setTopbarScrolled = () => {
+    if (!topbar) return;
+    topbar.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+  setTopbarScrolled();
+  window.addEventListener('scroll', setTopbarScrolled, { passive: true });
+
   /* ----- Drawer / menu ----- */
   const btn = $('#menuBtn');
   const drawer = $('#drawer');
@@ -58,6 +66,12 @@
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  /* ----- Intro background video ----- */
+  const introVideo = $('.intro__video');
+  if (introVideo) {
+    introVideo.play().catch(() => {});
+  }
 
   /* ----- Reveal on scroll ----- */
   const revealSelectors = [
