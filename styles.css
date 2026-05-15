@@ -338,7 +338,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   margin: 0 0 16px;
   font-size: 15px;
   line-height: 1.55;
-  color: var(--ink);
+  color: #997b7b;
 }
 
 .studio-about__key {
@@ -365,17 +365,23 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   padding: 20px 18px;
   border: 1px solid var(--line);
   background: var(--cream);
-  font-family: var(--display);
-  font-style: italic;
   font-size: clamp(17px, 4.2vw, 20px);
-  line-height: 1.4;
+  line-height: 1.45;
   text-align: center;
   color: var(--ink);
 }
 
 .studio-about__quote em {
-  font-style: italic;
+  font-family: var(--display);
+}
+
+.studio-about__quote-label {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
   font-weight: 500;
+  letter-spacing: 0.03em;
+  font-size: 0.95em;
 }
 
 /* =====================================================
