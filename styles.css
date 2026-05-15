@@ -1035,10 +1035,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background-position: 50% 47%;
 }
 .works-grid__cell[data-photo="work-4"] {
-  background-image: none;
-}
-.works-grid__cell[data-photo="work-4"] .works-grid__video {
-  object-position: 10% 53%;
+  background-image: url("assets/2026-05-15_22.55.45-cc8ac2fa-e8b0-456b-890e-bdf32b964dc4.png");
+  background-position: 48% 55%;
 }
 
 .works-grid__cell[data-photo="hair-work-1"] {
