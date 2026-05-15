@@ -69,6 +69,28 @@
     });
   });
 
+  /* ----- Services accordions ----- */
+  $$('[data-services-accordion]').forEach((list) => {
+    list.querySelectorAll('.services__trigger').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.services__item');
+        if (!item) return;
+        const wasOpen = item.classList.contains('is-open');
+
+        list.querySelectorAll('.services__item').forEach((el) => {
+          el.classList.remove('is-open');
+          const t = el.querySelector('.services__trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!wasOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+
   /* ----- Autoplay inline videos (intro, heroes, why tile, works grid) ----- */
   $$('video').forEach((v) => {
     v.play().catch(() => {});

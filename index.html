@@ -120,7 +120,7 @@
          1. HERO — KARINA (Ресницы & Брови)
          ==================================================== -->
     <section class="card hero" id="karina">
-      <p class="hero__tag"><em>бровист &middot; lash master</em></p>
+      <p class="hero__tag"><em>ресницы<span class="hero__tag-separator"> & </span>брови by</em></p>
       <h1 class="hero__title">КАРИНА <em>Фельдбуш</em></h1>
       <p class="hero__sub">
         10 лет опыта<br />
@@ -153,7 +153,7 @@
         </p>
         <p class="hero__text hero__text--italic">
           Использую только материалы высокого качества и современные техники,
-          для создания предсказуемого и воздушного результата!
+          для создания предсказуемого и воздушного результата
         </p>
       </div>
     </section>
@@ -162,11 +162,47 @@
     <section class="card services">
       <h2 class="services__title">МОИ УСЛУГИ</h2>
 
-      <ul class="services__list">
-        <li><a href="#contact"><span>НАРАЩИВАНИЕ РЕСНИЦ</span><i>›</i></a></li>
-        <li><a href="#contact"><span>ПЕРМАНЕНТНЫЙ МАКИЯЖ</span><i>›</i></a></li>
-        <li><a href="#contact"><span>ЛАМИНИРОВАНИЕ</span><i>›</i></a></li>
-        <li><a href="#contact"><span>ЭСТЕТИЧЕСКАЯ КОСМЕТОЛОГИЯ</span><i>›</i></a></li>
+      <ul class="services__list" data-services-accordion>
+        <li class="services__item is-open">
+          <button type="button" class="services__trigger" aria-expanded="true" aria-controls="karina-svc-1" id="karina-svc-1-label">
+            <span>НАРАЩИВАНИЕ РЕСНИЦ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="karina-svc-1" role="region" aria-labelledby="karina-svc-1-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Нежное наращивание с индивидуальным подбором изгиба и длины — естественный объём без перегруза.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="karina-svc-2" id="karina-svc-2-label">
+            <span>ПЕРМАНЕНТНЫЙ МАКИЯЖ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="karina-svc-2" role="region" aria-labelledby="karina-svc-2-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Брови, губы и межресничка — аккуратные линии и пигменты премиум-класса для стойкого, «свежего» вида.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="karina-svc-3" id="karina-svc-3-label">
+            <span>ЛАМИНИРОВАНИЕ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="karina-svc-3" role="region" aria-labelledby="karina-svc-3-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Выравнивание и питание ресниц / бровей — выразительный изгиб и уход в одной процедуре.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="karina-svc-4" id="karina-svc-4-label">
+            <span>ЭСТЕТИЧЕСКАЯ КОСМЕТОЛОГИЯ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="karina-svc-4" role="region" aria-labelledby="karina-svc-4-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Мягкие уходовые процедуры для кожи лица — подчёркиваем естественное сияние без агрессии.</p>
+            </div>
+          </div>
+        </li>
       </ul>
 
       <a href="#contact" class="btn btn--cream btn--block">Хочу идеальные брови</a>
@@ -267,11 +303,47 @@
     <section class="card services">
       <h2 class="services__title">МОИ УСЛУГИ</h2>
 
-      <ul class="services__list">
-        <li><a href="#contact"><span>НАРАЩИВАНИЕ ВОЛОС</span><i>›</i></a></li>
-        <li><a href="#contact"><span>ПОДБОР ДОНОРСКИХ ВОЛОС</span><i>›</i></a></li>
-        <li><a href="#contact"><span>ПРЕМИАЛЬНЫЕ СРЕЗЫ</span><i>›</i></a></li>
-        <li><a href="#contact"><span>КОРРЕКЦИЯ</span><i>›</i></a></li>
+      <ul class="services__list" data-services-accordion>
+        <li class="services__item is-open">
+          <button type="button" class="services__trigger" aria-expanded="true" aria-controls="anastasia-svc-1" id="anastasia-svc-1-label">
+            <span>НАРАЩИВАНИЕ ВОЛОС</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="anastasia-svc-1" role="region" aria-labelledby="anastasia-svc-1-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Капсулы, лёгкая линия или лента — длина и объём под ваш тип волос и образ жизни.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="anastasia-svc-2" id="anastasia-svc-2-label">
+            <span>ПОДБОР ДОНОРСКИХ ВОЛОС</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="anastasia-svc-2" role="region" aria-labelledby="anastasia-svc-2-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Подбираю оттенок и структуру донорского материала под ваши натуральные волосы — незаметный переход.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="anastasia-svc-3" id="anastasia-svc-3-label">
+            <span>ПРЕМИАЛЬНЫЕ СРЕЗЫ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="anastasia-svc-3" role="region" aria-labelledby="anastasia-svc-3-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Работаю только с качественными срезами однонаправленного расположения кутикулы.</p>
+            </div>
+          </div>
+        </li>
+        <li class="services__item">
+          <button type="button" class="services__trigger" aria-expanded="false" aria-controls="anastasia-svc-4" id="anastasia-svc-4-label">
+            <span>КОРРЕКЦИЯ</span><i aria-hidden="true">›</i>
+          </button>
+          <div class="services__panel" id="anastasia-svc-4" role="region" aria-labelledby="anastasia-svc-4-label">
+            <div class="services__panel-inner">
+              <p class="services__detail">Поддержание формы и комфорта носки — аккуратное обновление без потери объёма.</p>
+            </div>
+          </div>
+        </li>
       </ul>
 
       <a href="#contact" class="btn btn--cream btn--block">Хочу идеальные волосы</a>
