@@ -33,6 +33,7 @@
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (topbar) topbar.classList.remove('is-menu-open');
   };
 
   if (btn && drawer) {
@@ -43,6 +44,7 @@
       btn.setAttribute('aria-expanded', String(open));
       drawer.setAttribute('aria-hidden', String(!open));
       document.body.style.overflow = open ? 'hidden' : '';
+      if (topbar) topbar.classList.toggle('is-menu-open', open);
     });
 
     drawer.addEventListener('click', (e) => {
@@ -67,11 +69,10 @@
     });
   });
 
-  /* ----- Intro background video ----- */
-  const introVideo = $('.intro__video');
-  if (introVideo) {
-    introVideo.play().catch(() => {});
-  }
+  /* ----- Autoplay inline videos (intro, heroes, why tile, works grid) ----- */
+  $$('video').forEach((v) => {
+    v.play().catch(() => {});
+  });
 
   /* ----- Reveal on scroll ----- */
   const revealSelectors = [
@@ -80,6 +81,7 @@
     '.intro__sub',
     '.intro__tagline',
     '.intro__buttons',
+    '.studio-about',
     '.card',
     '.card-block',
     '.why-tile',

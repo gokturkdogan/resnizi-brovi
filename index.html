@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
-  <meta name="description" content="Beauty Space — Ресницы & Брови (Карина) и Любить волосы (Анастасия). ЖК Зорге 9, Москва." />
+  <meta name="description"
+    content="Beauty Space — Ресницы & Брови (Карина) и Любить волосы (Анастасия). ЖК Зорге 9, Москва." />
   <title>Beauty Space — Ресницы & Брови · Любить волосы</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div class="page">
     <!-- ============ TOP BAR ============ -->
@@ -31,6 +33,7 @@
     <nav class="drawer" id="drawer" aria-hidden="true">
       <a href="#karina">Ресницы &amp; Брови</a>
       <a href="#anastasia">Любить волосы</a>
+      <a href="#studio">О студии</a>
       <a href="#why">Почему мы</a>
       <a href="#works">Работы · Карина</a>
       <a href="#works-hair">Работы · волосы</a>
@@ -43,15 +46,8 @@
          ==================================================== -->
     <section class="intro" id="intro">
       <div class="intro__bg" aria-hidden="true">
-        <video
-          class="intro__video"
-          autoplay
-          muted
-          loop
-          playsinline
-          disablepictureinpicture
-          poster="assets/IMG_1762-c172f222-f801-40d9-b93b-046e8a991f2d.png"
-        >
+        <video class="intro__video" autoplay muted loop playsinline disablepictureinpicture
+          poster="assets/IMG_1762-c172f222-f801-40d9-b93b-046e8a991f2d.png">
           <source src="assets/IMG_1952.mp4" type="video/mp4" />
         </video>
       </div>
@@ -91,6 +87,35 @@
       </div>
     </section>
 
+    <!-- ============ STUDIO — positioning & ethos ============ -->
+    <section class="card-block studio-about" id="studio">
+      <h2 class="hero__title hero__title--about">О нас</h2>
+      <p class="studio-about__eyebrow">Мы создали пространство, в котором нет случайных услуг</p>
+
+      <div class="studio-about__grid">
+        <div class="studio-about__shots" aria-hidden="true">
+          <figure class="studio-about__shot studio-about__shot--a"></figure>
+          <figure class="studio-about__shot studio-about__shot--b"></figure>
+        </div>
+
+        <div class="studio-about__body">
+          <p class="studio-about__format">
+            <span class="studio-about__key">Только</span>
+            Точная работа с внешностью <br />
+            Индивидуальный подбор материалов <br />
+            Эстетика, которая выглядит благородно
+          </p>
+<!--           <p class="studio-about__text">
+            Студия двух мастеров, где каждая услуга — результат высокой специализации,
+            а не потоковой работы.
+          </p> -->
+          <p class="studio-about__quote">
+            <em>Закрытая экспертная студия, где каждая слуга - результат высокой специализации, а не потоковой работы </em>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================================================
          1. HERO — KARINA (Ресницы & Брови)
          ==================================================== -->
@@ -102,7 +127,12 @@
         через искусство взгляда
       </p>
 
-      <div class="hero__photo" data-photo="karina"></div>
+      <div class="hero__photo" data-photo="karina">
+        <video class="hero__photo-video" autoplay muted loop playsinline disablepictureinpicture
+          poster="assets/IMG_1723-4dd00a52-1e6c-40fa-85a1-44c6f8df1dc8.png">
+          <source src="assets/IMG_1953.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <a href="#contact" class="btn btn--brown btn--block">Записаться</a>
 
@@ -168,7 +198,12 @@
         <div class="works-grid__cell works-grid__cell--a" data-photo="work-1">
           <span class="works-grid__label">твои брови<br />— моя страсть!</span>
         </div>
-        <div class="works-grid__cell works-grid__cell--b" data-photo="work-2"></div>
+        <div class="works-grid__cell works-grid__cell--b" data-photo="work-2">
+          <video class="works-grid__video" autoplay muted loop playsinline disablepictureinpicture
+            poster="assets/IMG_1737-44bfd771-20c9-4848-87d3-051a6c139c0b.png">
+            <source src="assets/IMG_1950.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div class="works-grid__cell works-grid__cell--c" data-photo="work-3">
           <span class="works-grid__label works-grid__label--bottom">только<br />натуральность!</span>
         </div>
@@ -326,17 +361,14 @@
 
       <div class="contact__buttons">
         <a class="btn btn--white btn--block" href="https://instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a>
-        <a class="btn btn--white btn--block" href="https://wa.me/70000000000" target="_blank" rel="noopener">WHATSAPP</a>
+        <a class="btn btn--white btn--block" href="https://wa.me/70000000000" target="_blank"
+          rel="noopener">WHATSAPP</a>
         <a class="btn btn--white btn--block" href="https://t.me/" target="_blank" rel="noopener">TELEGRAM</a>
         <a class="btn btn--white btn--block" href="tel:+70000000000">ПОЗВОНИТЬ</a>
       </div>
 
-      <a
-        class="btn btn--cream btn--block contact__route"
-        href="https://yandex.ru/maps/?text=ЖК Зорге 9, Москва"
-        target="_blank"
-        rel="noopener"
-      >Построить маршрут</a>
+      <a class="btn btn--cream btn--block contact__route" href="https://yandex.ru/maps/?text=ЖК Зорге 9, Москва"
+        target="_blank" rel="noopener">Построить маршрут</a>
     </section>
 
     <!-- ============ FINAL CTA ============ -->
@@ -355,4 +387,5 @@
 
   <script src="script.js" defer></script>
 </body>
+
 </html>

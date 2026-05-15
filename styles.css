@@ -99,6 +99,22 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  transition: background 0.3s var(--ease);
+}
+
+.topbar.is-menu-open .topbar__inner {
+  background: #ffffff;
+}
+
+/* Hamburger readable on white inner when menu open (before scroll blur state) */
+.topbar.is-menu-open:not(.is-scrolled) .topbar__menu {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+.topbar.is-menu-open:not(.is-scrolled) .topbar__menu span {
+  background: var(--ink);
+}
+.topbar.is-menu-open:not(.is-scrolled) .topbar__menu:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .topbar__menu {
@@ -260,6 +276,106 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--cream-3);
   font-size: 1.05em;
   margin-left: 4px;
+}
+
+/* =====================================================
+   STUDIO ABOUT — brand positioning (after intro video)
+   ===================================================== */
+.studio-about .hero__title--about {
+  text-align: center;
+  margin: 4px 0 10px;
+}
+
+.studio-about__eyebrow {
+  margin-top: 0 !important;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin: -10px 0 22px;
+  line-height: 1.4;
+  padding: 0;
+}
+
+.studio-about__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.studio-about__shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.studio-about__shot {
+  margin: 0;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  background: var(--cream-2) center/cover no-repeat;
+  filter: saturate(0.92) contrast(1.03);
+}
+
+.studio-about__shot--a {
+  background-image: url("assets/IMG_1770-0da85680-e3a3-4781-bd67-266740257349.png");
+  background-position: center 45%;
+}
+
+.studio-about__shot--b {
+  background-image: url("assets/IMG_1764-2ffc54bd-9981-47b4-9071-716b6bda8021.png");
+  background-position: center 40%;
+}
+
+.studio-about__body {
+  padding: 2px 2px 4px;
+}
+
+.studio-about__format {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.studio-about__key {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.studio-about__text {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.studio-about__quote {
+  margin: 0;
+  padding: 20px 18px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(17px, 4.2vw, 20px);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--ink);
+}
+
+.studio-about__quote em {
+  font-style: italic;
+  font-weight: 500;
 }
 
 /* =====================================================
@@ -505,6 +621,12 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--brown);
 }
 
+/* Studio block only — tune size here without affecting Karina / Anastasia heroes */
+.hero__title--about {
+  font-size: clamp(22px, 6.4vw, 30px);
+  text-align: left !important;
+}
+
 .hero__sub {
   margin: 0 auto 22px;
   max-width: 280px;
@@ -519,6 +641,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 .hero__photo {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: var(--r-md);
@@ -527,9 +651,21 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   filter: saturate(0.88) contrast(1.02);
 }
 
-#karina .hero__photo {
-  background-image: url("assets/IMG_1723-4dd00a52-1e6c-40fa-85a1-44c6f8df1dc8.png");
+.hero__photo-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
 }
+
+#karina .hero__photo {
+  background-image: none;
+}
+
 #anastasia .hero__photo {
   background-image: url("assets/IMG_1730-7b94059d-9ce1-45dc-a3ab-fec17aace7db.png");
   background-position: center 25%;
@@ -674,6 +810,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   gap: 8px;
 }
 .why-tile {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--r-md);
   padding: 16px 12px 18px;
   min-height: 200px;
@@ -762,6 +900,16 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   overflow: hidden;
 }
 
+.works-grid__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .works-grid__cell--a { grid-column: 1 / 2; grid-row: 1 / 2; }
 .works-grid__cell--b { grid-column: 2 / 3; grid-row: 1 / 3; }
 .works-grid__cell--c { grid-column: 1 / 2; grid-row: 2 / 3; }
@@ -774,8 +922,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   right: 10px;
 }
 .works-grid__cell[data-photo="work-2"] {
-  background-image: url("assets/IMG_1737-44bfd771-20c9-4848-87d3-051a6c139c0b.png");
-  background-position: center 15%;
+  background-image: none;
+}
+.works-grid__cell[data-photo="work-2"] .works-grid__video {
+  object-position: center 15%;
 }
 .works-grid__cell[data-photo="work-3"] { background-image: url("assets/IMG_1720-e94b9e6a-3dca-49fa-b9eb-07c88397068c.png"); }
 .works-grid__cell[data-photo="work-4"] {
@@ -807,6 +957,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   position: absolute;
   right: 10px;
   top: 10px;
+  z-index: 1;
   background: var(--cream);
   color: var(--ink);
   font-family: var(--display);
