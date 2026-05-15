@@ -1223,10 +1223,15 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   gap: 10px;
   border: 1px solid var(--line);
 }
-.atmosphere__list li span {
+.atmosphere__list li .atmosphere__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   color: var(--brown);
-  font-size: 22px;
-  line-height: 0;
+}
+.atmosphere__list li .atmosphere__icon svg {
+  display: block;
 }
 
 /* =====================================================
