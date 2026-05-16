@@ -290,9 +290,10 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   margin-left: 4px;
 }
 
-/* =====================================================
-   STUDIO ABOUT — brand positioning (after intro video)
-   ===================================================== */
+.block__title--contact {
+  color: rgba(114, 92, 92, 0.82);
+  font-size: clamp(17px, 4.6vw, 21px);
+}
 .studio-about .hero__title--about {
   text-align: center;
   margin: 4px 0 10px;
