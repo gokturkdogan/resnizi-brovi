@@ -610,7 +610,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 
 .hero__tag {
   margin: 0 0 4px;
-  color: #8e5e5e;
+  color: #725c5cd1;
   font-size: 14px;
 }
 .hero__tag-separator {
@@ -796,7 +796,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 .hero__text--italic {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 15px;
   color: var(--brown);
   margin-top: 10px;
