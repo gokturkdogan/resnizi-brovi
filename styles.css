@@ -855,7 +855,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   border: 0;
   background: var(--cream);
   color: var(--ink);
-  font: inherit;
+  font-family: var(--sans);
+  font-style: normal;
   font-size: 12px;
   letter-spacing: 0.18em;
   font-weight: 500;
