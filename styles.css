@@ -441,7 +441,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgb(0 0 0 / 53%) 0%, rgb(0 0 0 / 29%) 100%);
+  background: linear-gradient(180deg, rgb(236 131 131 / 14%) 0%, rgb(37 33 33 / 32%) 100%)
   
 }
 
@@ -488,6 +488,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   margin: 12px 0 18px;
   color: #ffffff;
   text-transform: none;
+  text-shadow: 0 1px 3px rgb(62 31 31), 0 5px 32px rgb(0 0 0);
 }
 .intro__title em {
   display: inline-block;
