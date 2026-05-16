@@ -200,6 +200,18 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .btn:hover { transform: translateY(-1px); }
 .btn--block { width: 100%; display: flex; }
 
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.92;
+}
+.btn__icon svg {
+  display: block;
+}
+
 .btn--brown {
   --b-bg: transparent;
   --b-fg: var(--ink);
