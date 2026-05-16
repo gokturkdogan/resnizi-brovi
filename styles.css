@@ -1030,6 +1030,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 .works-grid__cell--c { grid-column: 1 / 2; grid-row: 2 / 3; }
 .works-grid__cell--d { grid-column: 1 / 3; grid-row: 3 / 4; }
 
+/* Hair works: one tall cell replaces former slots a + c */
+.works-grid--hair {
+  grid-template-rows: 130px 130px 168px;
+}
+.works-grid--hair .works-grid__cell--a {
+  grid-row: 1 / 3;
+}
+
 .works-grid__cell[data-photo="work-1"] {
   background-image: url("assets/2026-05-15_22.22.12-bfde6466-8ac5-4a66-b184-7bb77202e5bc.png");
   background-position: 50% -3%;
@@ -1054,10 +1062,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background-position: 48% 55%;
 }
 
-.works-grid__cell[data-photo="hair-work-1"] {
-  background-image: url("assets/IMG_1729-c58be501-c528-4de0-b444-284a55fb504b.png");
+.works-grid__cell[data-photo="hair-work-13"] {
+  background-image: url("assets/photo_2026-05-16_21.48.25-62cc15c3-f847-40d8-b574-49472d95ff01.png");
+  background-position: center 35%;
 }
-.works-grid__cell[data-photo="hair-work-1"] .works-grid__label {
+.works-grid__cell[data-photo="hair-work-13"] .works-grid__label:not(.works-grid__label--bottom) {
   top: auto;
   bottom: 9px;
   right: 10px;
@@ -1066,14 +1075,9 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background-image: url("assets/IMG_1727-f798d003-0647-461c-b1fd-38d117066953.png");
   background-position: center 35%;
 }
-.works-grid__cell[data-photo="hair-work-3"] {
-  background-image: url("assets/IMG_1734-8ebadd63-a5af-44f4-8c79-f4432eb58f3e.png");
-}
 .works-grid__cell[data-photo="hair-work-4"] {
-  background-image: none;
-}
-.works-grid__cell[data-photo="hair-work-4"] .works-grid__video {
-  object-position: 50% 22%;
+  background-image: url("assets/photo_2026-05-16_21.48.21-227d4085-6c47-4063-b615-e40ecc8dab2c.png");
+  background-position: center 40%;
 }
 
 .works-grid__label {
@@ -1149,6 +1153,101 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   letter-spacing: 0.18em;
   margin: 0;
   opacity: 0.85;
+}
+
+/* =====================================================
+   GALLERY MARQUEE — infinite horizontal scroll
+   ===================================================== */
+.gallery-marquee {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.gallery-marquee__viewport {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  margin: 0;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 4%,
+    #000 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 4%,
+    #000 96%,
+    transparent 100%
+  );
+}
+
+.gallery-marquee__viewport:hover .gallery-marquee__track,
+.gallery-marquee__viewport:focus-within .gallery-marquee__track {
+  animation-play-state: paused;
+}
+
+.gallery-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: gallery-marquee-scroll 48s linear infinite;
+  will-change: transform;
+}
+
+.gallery-marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: 8px;
+  padding: 8px;
+}
+
+.gallery-marquee__cell {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(260px, 58vw);
+  height: 176px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream-2);
+}
+
+.gallery-marquee__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Larger cells — use on selected marquee only (e.g. after hair works) */
+.gallery-marquee--lg .gallery-marquee__cell {
+  width: min(300px, 64vw);
+  height: 300px;
+}
+
+@keyframes gallery-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee__track {
+    animation: none;
+  }
+  .gallery-marquee__group--clone {
+    display: none;
+  }
+  .gallery-marquee__viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
 }
 
 /* =====================================================
@@ -1459,5 +1558,8 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .why-grid { grid-template-columns: 1fr 1fr; }
   .why-tile--dark { grid-column: 1 / -1; min-height: 140px; }
   .works-grid { grid-auto-rows: 110px; }
+  .works-grid--hair {
+    grid-template-rows: 110px 110px 142px;
+  }
   .hero__bigword { font-size: 56px; }
 }
