@@ -488,7 +488,6 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   margin: 12px 0 18px;
   color: #ffffff;
   text-transform: none;
-  text-shadow: 0 1px 3px rgb(62 31 31), 0 5px 32px rgb(0 0 0);
 }
 .intro__title em {
   display: inline-block;
