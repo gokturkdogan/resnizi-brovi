@@ -1,4 +1,4 @@
-/* =========================================================
+ /* =========================================================
    Beauty Space — narrow vertical mobile-card landing
    - Drawer (mobile/full nav)
    - Smooth scroll
