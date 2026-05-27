@@ -65,6 +65,60 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   position: relative;
 }
 
+/* ---------- Temporary offline / maintenance (remove when site is live again) ---------- */
+.site-offline .page {
+  display: none !important;
+}
+
+.maintenance {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.maintenance__inner {
+  width: 100%;
+  max-width: var(--col-w);
+  padding: 40px 28px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.maintenance__brand {
+  margin: 0 0 20px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.maintenance__title {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(28px, 8vw, 40px);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.maintenance__title em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.maintenance__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 /* ---------- Top bar (fixed over hero video; solid + blur when scrolled) ---------- */
 .topbar {
   position: fixed;
